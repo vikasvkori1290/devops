@@ -1243,7 +1243,7 @@ async function onCheckboxToggle(e) {
   renderProgressState();
 
   // Save to MongoDB backend
-  statusText.textContent = 'Saving to MongoDB…';
+  if (statusText) statusText.textContent = 'Saving to MongoDB…';
   try {
     const res = await fetch('/api/checkbox', {
       method: 'POST',
@@ -1252,18 +1252,18 @@ async function onCheckboxToggle(e) {
     });
 
     if (res.ok) {
-      statusText.textContent = 'Saved in MongoDB ✓';
+      if (statusText) statusText.textContent = 'Saved in MongoDB ✓';
     } else {
       const data = await res.json().catch(() => ({}));
       if (data.isConnected === false) {
-        statusText.textContent = 'Saved locally (connect MongoDB to sync) ✓';
+        if (statusText) statusText.textContent = 'Saved locally (connect MongoDB to sync) ✓';
       } else {
-        statusText.textContent = 'Saved locally ✓';
+        if (statusText) statusText.textContent = 'Saved locally ✓';
       }
     }
   } catch (err) {
     // Backend unreachable, fallback preserved in local cache
-    statusText.textContent = 'Saved locally ✓';
+    if (statusText) statusText.textContent = 'Saved locally ✓';
   }
 }
 
@@ -1438,40 +1438,44 @@ function loadFromLocalStorage() {
 
 // Main load function: load from localStorage immediately, then sync with MongoDB
 async function loadProgress() {
-  // Step 1: Instant render from local cache so marked checkboxes never vanish on reload
+  // Step 1: Instant render from local cache
   loadFromLocalStorage();
-  startInput.value = startDateStr || todayISO();
+  if (startInput) startInput.value = startDateStr || todayISO();
   applyDates();
   renderProgressState();
 
   // Step 2: Fetch authoritative data from MongoDB backend
   try {
-    const res = await fetch('/api/progress');
+    const res = await fetch('/api/progress', { cache: 'no-store' });
     if (res.ok) {
       const data = await res.json();
       if (data.connected) {
-        setMongoConnected(true);
-        // Merge MongoDB checkboxes:
-        if (data.checkboxes) {
-          checkboxesState = data.checkboxes;
+        // Merge MongoDB checkboxes (only truthy values)
+        if (data.checkboxes && typeof data.checkboxes === 'object') {
+          const remoteState = {};
+          Object.entries(data.checkboxes).forEach(([key, val]) => {
+            if (val === true) remoteState[key] = true;
+          });
+          checkboxesState = remoteState;
         }
         if (data.startDate) {
           startDateStr = data.startDate;
-          startInput.value = startDateStr;
+          if (startInput) startInput.value = startDateStr;
         }
         // Save to local cache
         saveToLocalStorage();
         applyDates();
         renderProgressState();
-        statusText.textContent = 'Synced with MongoDB ✓';
+        if (statusText) statusText.textContent = 'Synced with MongoDB ✓';
       } else {
-        statusText.textContent = 'Saved locally ✓';
+        if (statusText) statusText.textContent = 'Saved locally ✓';
       }
     } else {
-      statusText.textContent = 'Saved locally ✓';
+      if (statusText) statusText.textContent = 'Saved locally ✓';
     }
   } catch (e) {
-    statusText.textContent = 'Saved locally ✓';
+    console.warn('MongoDB sync error:', e);
+    if (statusText) statusText.textContent = 'Saved locally ✓';
   }
 }
 
@@ -1511,9 +1515,9 @@ document.getElementById('resetBtn').addEventListener('click', async () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ checkboxes: {} })
       });
-      statusText.textContent = 'Progress reset in MongoDB ✓';
+      if (statusText) statusText.textContent = 'Progress reset in MongoDB ✓';
     } catch (e) {
-      statusText.textContent = 'Reset locally ✓';
+      if (statusText) statusText.textContent = 'Reset locally ✓';
     }
   }
 });
@@ -1527,6 +1531,13 @@ loadProgress().then(() => {
   const block = document.querySelector(`.month-block[data-month="${firstPending.m}"]`);
   if (block) block.classList.add('open');
 });
+
+// Multi-device sync: auto-sync on tab switch, window focus, and background polling
+window.addEventListener('focus', () => loadProgress());
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') loadProgress();
+});
+setInterval(() => loadProgress(), 8000);
 </script>
 </body>
 </html>

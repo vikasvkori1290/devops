@@ -133,6 +133,7 @@ app.post('/api/config-uri', async (req, res) => {
 
 // GET progress
 app.get('/api/progress', async (req, res) => {
+  res.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
   if (!isConnected || !progressCollection) {
     return res.json({
       connected: false,
@@ -164,7 +165,7 @@ app.get('/api/progress', async (req, res) => {
   }
 });
 
-// POST single checkbox toggle (saves as id: true / false)
+// POST single checkbox toggle (saves as id: true / removes if false)
 app.post('/api/checkbox', async (req, res) => {
   const { id, checked } = req.body;
   if (!id) {
@@ -177,16 +178,31 @@ app.post('/api/checkbox', async (req, res) => {
 
   try {
     const isTrue = Boolean(checked);
-    await progressCollection.updateOne(
-      { _id: 'roadmap_progress' },
-      {
-        $set: {
-          [`checkboxes.${id}`]: isTrue,
-          updatedAt: new Date()
-        }
-      },
-      { upsert: true }
-    );
+    if (isTrue) {
+      await progressCollection.updateOne(
+        { _id: 'roadmap_progress' },
+        {
+          $set: {
+            [`checkboxes.${id}`]: true,
+            updatedAt: new Date()
+          }
+        },
+        { upsert: true }
+      );
+    } else {
+      await progressCollection.updateOne(
+        { _id: 'roadmap_progress' },
+        {
+          $unset: {
+            [`checkboxes.${id}`]: ""
+          },
+          $set: {
+            updatedAt: new Date()
+          }
+        },
+        { upsert: true }
+      );
+    }
 
     return res.json({ success: true, id, checked: isTrue });
   } catch (err) {
