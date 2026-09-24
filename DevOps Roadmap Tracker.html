@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DevOps Roadmap Tracker - Vikas V &amp; Nitish Kumar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-gradient: radial-gradient(circle at 10% 20%, #f8fafc 0%, #edf2f7 90%);
+  --bg: #f1f5f9;
+  --surface: #ffffff;
+  --surface-hover: #f8fafc;
+  --card: #ffffff;
+  --card-border: #e2e8f0;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-dim: #94a3b8;
+  --border: #e2e8f0;
+  --border-light: #cbd5e1;
+
+  --vikas-primary: #4f46e5;
+  --vikas-glow: rgba(79, 70, 229, 0.2);
+  --vikas-bg: #eef2ff;
+  --vikas-border: #c7d2fe;
+  --vikas-gradient: linear-gradient(135deg, #4f46e5, #38bdf8);
+
+  --nitish-primary: #059669;
+  --nitish-glow: rgba(5, 150, 105, 0.2);
+  --nitish-bg: #ecfdf5;
+  --nitish-border: #a7f3d0;
+  --nitish-gradient: linear-gradient(135deg, #059669, #06b6d4);
+
+  --both-bg: #f0fdf4;
+  --both-border: #86efac;
+
+  --badge-new-bg: #e0f2fe;
+  --badge-new-text: #0284c7;
+  --badge-lab-bg: #ffedd5;
+  --badge-lab-text: #c2410c;
+  --badge-wk-bg: #fef9c3;
+  --badge-wk-text: #a16207;
+  --badge-mo-bg: #f3e8ff;
+  --badge-mo-text: #7e22ce;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="dark"] {
+  --bg-gradient: radial-gradient(circle at 10% 20%, #111827 0%, #0b0f19 90%);
+  --bg: #0b0f19;
+  --surface: #131926;
+  --surface-hover: #1a2234;
+  --card: #161e2e;
+  --card-border: rgba(255, 255, 255, 0.08);
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --border: #1e293b;
+  --border-light: #283548;
+
+  --vikas-primary: #6366f1;
+  --vikas-glow: rgba(99, 102, 241, 0.25);
+  --vikas-bg: rgba(99, 102, 241, 0.12);
+  --vikas-border: rgba(99, 102, 241, 0.4);
+  --vikas-gradient: linear-gradient(135deg, #6366f1, #38bdf8);
+
+  --nitish-primary: #10b981;
+  --nitish-glow: rgba(16, 185, 129, 0.25);
+  --nitish-bg: rgba(16, 185, 129, 0.12);
+  --nitish-border: rgba(16, 185, 129, 0.4);
+  --nitish-gradient: linear-gradient(135deg, #10b981, #06b6d4);
+
+  --both-bg: rgba(56, 189, 248, 0.08);
+  --both-border: rgba(56, 189, 248, 0.3);
+
+  --badge-new-bg: rgba(56, 189, 248, 0.14);
+  --badge-new-text: #38bdf8;
+  --badge-lab-bg: rgba(251, 146, 60, 0.14);
+  --badge-lab-text: #fb923c;
+  --badge-wk-bg: rgba(250, 204, 21, 0.14);
+  --badge-wk-text: #facc15;
+  --badge-mo-bg: rgba(168, 85, 247, 0.14);
+  --badge-mo-text: #c084fc;
+
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  background-image: var(--bg-gradient);
+  min-height: 100vh;
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 20px 80px;
+}
+
+/* Header Area */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--vikas-bg);
+  color: var(--vikas-primary);
+  border: 1px solid var(--vikas-border);
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.app-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.app-title .target-pill {
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  background: linear-gradient(90deg, #f43f5e, #ec4899);
+  color: #ffffff;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+}
+
+.app-subtitle {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  margin-top: 4px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+
+
+.status-pill {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.theme-toggle-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.theme-toggle-btn:hover {
+  color: var(--text-main);
+  border-color: var(--text-muted);
+}
+
+/* Peer Comparison Dashboard */
+.duo-dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .duo-dashboard {
+    grid-template-columns: 1fr;
+  }
+}
+
+.user-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-xl);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.user-card:hover {
+  border-color: var(--border-light);
+}
+
+.user-card.vikas-card {
+  border-top: 3px solid var(--vikas-primary);
+}
+
+.user-card.nitish-card {
+  border-top: 3px solid var(--nitish-primary);
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: #fff;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+}
+
+.avatar.vikas {
+  background: var(--vikas-gradient);
+  box-shadow: 0 4px 14px var(--vikas-glow);
+}
+
+.avatar.nitish {
+  background: var(--nitish-gradient);
+  box-shadow: 0 4px 14px var(--nitish-glow);
+}
+
+.user-info h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.user-info span {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.stat-pct-badge {
+  font-size: 1.4rem;
+  font-weight: 800;
+  font-family: 'JetBrains Mono', monospace;
+}
+.vikas-card .stat-pct-badge { color: var(--vikas-primary); }
+.nitish-card .stat-pct-badge { color: var(--nitish-primary); }
+
+/* Progress Bars */
+.progress-bar-wrap {
+  background: var(--border);
+  height: 10px;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vikas-card .progress-bar-fill {
+  background: var(--vikas-gradient);
+}
+
+.nitish-card .progress-bar-fill {
+  background: var(--nitish-gradient);
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.metric-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.metric-item .val {
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text-main);
+}
+
+.metric-item .lbl {
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+}
+
+/* Synergy Overview Banner */
+.synergy-banner {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 12px 18px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.82rem;
+}
+
+.synergy-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-muted);
+}
+
+.synergy-pill {
+  background: var(--both-bg);
+  border: 1px solid var(--both-border);
+  color: #38bdf8;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.synergy-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--text-dim);
+}
+
+/* Controls & Filters Bar */
+.control-bar {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.control-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-dim);
+}
+
+.control-input, .control-select {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 7px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.control-input:focus, .control-select:focus {
+  border-color: var(--vikas-primary);
+}
+
+.search-input {
+  min-width: 200px;
+}
+
+.btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 7px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+.btn:hover {
+  color: var(--text-main);
+  border-color: var(--border-light);
+  background: var(--surface-hover);
+}
+
+/* Month Accordion Modules */
+.month-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.month-block {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s ease;
+}
+.month-block:hover {
+  border-color: var(--border-light);
+}
+
+.month-head {
+  padding: 16px 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  user-select: none;
+  transition: background-color 0.15s ease;
+}
+.month-head:hover {
+  background: var(--surface-hover);
+}
+
+.month-head-left {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.m-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.m-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.month-head-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+}
+
+.mini-tracker-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.mini-person-stat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mini-avatar-tag {
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 5px;
+  border-radius: 4px;
+  color: #fff;
+}
+.mini-avatar-tag.vikas { background: var(--vikas-primary); }
+.mini-avatar-tag.nitish { background: var(--nitish-primary); }
+
+.mini-bar {
+  width: 55px;
+  height: 6px;
+  background: var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.mini-fill {
+  height: 100%;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+.mini-fill.vikas { background: var(--vikas-primary); }
+.mini-fill.nitish { background: var(--nitish-primary); }
+
+.mini-stat-label {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  font-family: 'JetBrains Mono', monospace;
+  min-width: 48px;
+}
+
+.chevron-icon {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.month-block.open .chevron-icon {
+  transform: rotate(90deg);
+}
+
+/* Table List inside Month */
+.day-list-wrap {
+  display: none;
+  border-top: 1px solid var(--border);
+}
+.month-block.open .day-list-wrap {
+  display: block;
+}
+
+/* Table Column Header: Left is Date & Topic, Right columns are Vikas V and Nitish Kumar */
+.table-header {
+  display: grid;
+  grid-template-columns: 1fr 150px 150px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-dim);
+}
+
+.col-header-main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.col-header-user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+}
+.col-header-user.vikas { color: var(--vikas-primary); }
+.col-header-user.nitish { color: var(--nitish-primary); }
+
+.mini-tag {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+/* Day Row */
+.day-row {
+  display: grid;
+  grid-template-columns: 1fr 150px 150px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+  transition: background 0.15s ease;
+}
+.day-row:last-child {
+  border-bottom: none;
+}
+.day-row:hover {
+  background: var(--surface-hover);
+}
+
+/* Completed Row Highlights */
+.day-row.vikas-done {
+  background: rgba(99, 102, 241, 0.04);
+}
+
+.day-row.nitish-done {
+  background: rgba(16, 185, 129, 0.04);
+}
+
+.day-row.both-done {
+  background: var(--both-bg);
+  box-shadow: inset 4px 0 0 #38bdf8;
+}
+
+/* Toward Left: Date & Topic to be covered on that day */
+.day-main-cell {
+  min-width: 0;
+  padding-right: 20px;
+}
+
+.day-meta-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+}
+
+.date-badge-main {
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text-main);
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  padding: 3px 10px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.day-badge-sub {
+  font-size: 0.70rem;
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text-dim);
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.badge {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  line-height: 1.3;
+}
+
+.badge.new { background: var(--badge-new-bg); color: var(--badge-new-text); }
+.badge.lab { background: var(--badge-lab-bg); color: var(--badge-lab-text); }
+.badge.weekrev { background: var(--badge-wk-bg); color: var(--badge-wk-text); }
+.badge.monthrev { background: var(--badge-mo-bg); color: var(--badge-mo-text); }
+
+.badge-hours {
+  font-size: 0.68rem;
+  font-family: 'JetBrains Mono', monospace;
+  padding: 1px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+}
+
+.topic-desc {
+  font-size: 0.9rem;
+  color: var(--text-main);
+  line-height: 1.45;
+  word-break: break-word;
+}
+.day-row.both-done .topic-desc {
+  color: var(--text-muted);
+}
+
+/* Checkbox Column Cells */
+.check-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  padding: 6px;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.custom-box {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  border: 2px solid var(--border-light);
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.checkbox-container:hover .custom-box {
+  border-color: var(--text-dim);
+  transform: scale(1.08);
+}
+
+/* Vikas Checked */
+.vikas-check input:checked ~ .custom-box {
+  background: var(--vikas-primary);
+  border-color: var(--vikas-primary);
+  box-shadow: 0 0 12px var(--vikas-glow);
+}
+
+/* Nitish Checked */
+.nitish-check input:checked ~ .custom-box {
+  background: var(--nitish-primary);
+  border-color: var(--nitish-primary);
+  box-shadow: 0 0 12px var(--nitish-glow);
+}
+
+.checkmark-svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 20;
+  stroke-dashoffset: 20;
+  transition: stroke-dashoffset 0.25s ease;
+}
+
+.checkbox-container input:checked ~ .custom-box .checkmark-svg {
+  stroke-dashoffset: 0;
+}
+
+.mobile-label {
+  display: none;
+  font-size: 0.76rem;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 720px) {
+  .table-header {
+    display: none;
+  }
+
+  .day-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .day-main-cell {
+    padding-right: 0;
+  }
+
+  .mobile-checkbox-row {
+    display: flex !important;
+    align-items: center;
+    gap: 20px;
+    padding-top: 10px;
+    margin-top: 6px;
+    border-top: 1px dashed var(--border);
+  }
+
+  .check-cell.desktop-only {
+    display: none;
+  }
+
+  .mobile-label {
+    display: inline-block;
+  }
+
+  .month-head-right {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+  }
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.78rem;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="app-container">
+  <!-- Header -->
+  <header class="app-header">
+    <div>
+      <div class="brand-badge">Dual Accountability Tracker</div>
+      <h1 class="app-title">
+        DevOps &amp; ML Infra Roadmap
+        <span class="target-pill">Target: Baseten</span>
+      </h1>
+      <div class="app-subtitle">
+        308 Days &middot; 1,056 Hours &middot; Master Linux, Go, Docker, Kubernetes, Knative, GPU Scheduling, Terraform &amp; vLLM
+      </div>
+    </div>
+    <div class="header-actions">
+      <div class="status-pill" id="statusPill">
+        <span id="statusText">Saved locally ✓</span>
+      </div>
+      <button class="theme-toggle-btn" id="themeToggleBtn" type="button" title="Toggle Light / Dark mode">🌙 Dark</button>
+    </div>
+  </header>
+
+  <!-- Duo Dashboard Cards -->
+  <div class="duo-dashboard">
+    <!-- Vikas V Card -->
+    <div class="user-card vikas-card">
+      <div class="card-top">
+        <div class="user-profile">
+          <div class="avatar vikas">VV</div>
+          <div class="user-info">
+            <h2>Vikas V</h2>
+            <span id="vikasRemaining">308 days remaining</span>
+          </div>
+        </div>
+        <div class="stat-pct-badge" id="vikasPct">0.0%</div>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="vikasBar"></div>
+      </div>
+      <div class="metrics-grid">
+        <div class="metric-item">
+          <div class="val" id="vikasDays">0 / 308</div>
+          <div class="lbl">Days Done</div>
+        </div>
+        <div class="metric-item">
+          <div class="val" id="vikasHours">0 / 1056</div>
+          <div class="lbl">Hours Logged</div>
+        </div>
+        <div class="metric-item">
+          <div class="val" id="vikasStreak">0 days</div>
+          <div class="lbl">Streak 🔥</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nitish Kumar Card -->
+    <div class="user-card nitish-card">
+      <div class="card-top">
+        <div class="user-profile">
+          <div class="avatar nitish">NK</div>
+          <div class="user-info">
+            <h2>Nitish Kumar</h2>
+            <span id="nitishRemaining">308 days remaining</span>
+          </div>
+        </div>
+        <div class="stat-pct-badge" id="nitishPct">0.0%</div>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="nitishBar"></div>
+      </div>
+      <div class="metrics-grid">
+        <div class="metric-item">
+          <div class="val" id="nitishDays">0 / 308</div>
+          <div class="lbl">Days Done</div>
+        </div>
+        <div class="metric-item">
+          <div class="val" id="nitishHours">0 / 1056</div>
+          <div class="lbl">Hours Logged</div>
+        </div>
+        <div class="metric-item">
+          <div class="val" id="nitishStreak">0 days</div>
+          <div class="lbl">Streak 🔥</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Synergy Banner -->
+  <div class="synergy-banner">
+    <div class="synergy-left">
+      <span>🤝 Team Synergy:</span>
+      <span class="synergy-pill" id="bothCountPill">0 Days Both Finished</span>
+    </div>
+    <div class="synergy-right">
+      <span id="syncDifference">Sync status: Perfectly in sync 🤝</span>
+    </div>
+  </div>
+
+  <!-- Controls & Filters Bar -->
+  <div class="control-bar">
+    <div class="control-group">
+      <span class="control-label">Start Date:</span>
+      <input type="date" id="startDate" class="control-input">
+      
+      <span class="control-label" style="margin-left:8px;">Filter:</span>
+      <select id="filterSelect" class="control-select">
+        <option value="all">Show All Days (308)</option>
+        <option value="both-done">Both Completed</option>
+        <option value="either-pending">Either Pending</option>
+        <option value="vikas-pending">Vikas Pending</option>
+        <option value="vikas-done">Vikas Completed</option>
+        <option value="nitish-pending">Nitish Pending</option>
+        <option value="nitish-done">Nitish Completed</option>
+        <option value="diff">Diff (Vikas ≠ Nitish)</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <input type="text" id="searchInput" class="control-input search-input" placeholder="Search topics (e.g. Docker, K8s)...">
+      <button id="expandAllBtn" class="btn" type="button">Expand All</button>
+      <button id="collapseAllBtn" class="btn" type="button">Collapse All</button>
+      <button id="resetBtn" class="btn" type="button" title="Reset all progress">Reset</button>
+    </div>
+  </div>
+
+  <!-- Month Accordions -->
+  <div id="months" class="month-container"></div>
+
+  <!-- Footer -->
+  <footer>
+    DevOps &amp; ML Infra Roadmap &bull; Dual Peer Progress Tracker &bull; Synced with MongoDB &amp; Local Storage.
+  </footer>
+</div>
+
+
+
+<script>
+const ROADMAP = [{"d":1,"m":1,"mt":"Linux, Networking, Git & Go Foundations","w":"Mon","t":"New Topic","tp":"Linux filesystem hierarchy, shell navigation, file permissions (chmod/chown/chgrp)","h":3},{"d":2,"m":1,"mt":"Linux, Networking, Git & Go Foundations","w":"Tue","t":"New Topic","tp":"Process management (ps, top, kill, nice), systemd services & units","h":3},{"d":3,"m":1,"mt":"Linux, Networking, Git & Go Foundations","w":"Wed","t":"New Topic","tp":"Package management (apt/yum), users & groups, cron jobs","h":3},{"d":4,"m":1,"mt":"Linux, Networking, Git & Go Foundations","w":"Thu","t":"New Topic","tp":"Bash scripting basics: variables, loops, conditionals, functions","h":3},{"d":5,"m":1,"mt":"Linux, Networking, Git & Go Foundations","w":"Fri","t":"New Topic","tp":"Text processing: grep, sed, awk, pipes & redirection","h":3},{"d":6,"m":1,"mt":"Linux, Networking, Git & Go Foundations","w":"Sat","t":"Lab (4h)","tp":"Write 3 bash scripts: log cleanup, user creation, automated backup","h":4},{"d":7,"m":1,"mt":"Linux, Networking, Git & Go Foundations","w":"Sun","t":"Weekly Revision","tp":"Linux command cheat sheet + timed drill (redo Mon-Fri exercises unaided)","h":5},{"d":8,"m":1,"mt":"Linux, Networking, Git & Go Foundations","w":"Mon","t":"New Topic","tp":"TCP/IP model, subnetting, routing basics","h":3},{"d":9,"m":1,"mt":"Linux, Networking, Git & Go Foundations","w":"Tue","t":"New Topic","tp":"DNS deep dive: records, resolution, dig/nslookup","h":3},{"d":10,"m":1,"mt":"Linux, Networking, Git & Go Foundations","w":"Wed","t":"New Topic","tp":"HTTP/HTTPS, TLS handshake, certificates","h":3},{"d":11,"m":1,"mt":"Linux, Networking, Git & Go Foundations","w":"Thu","t":"New Topic","tp":"Load balancing concepts, reverse proxies, intro to nginx","h":3},{"d":12,"m":1,"mt":"Linux, Networking, Git & Go Foundations","w":"Fri","t":"New Topic","tp":"HTTP/2 and gRPC basics (protocol buffers)","h":3},{"d":13,"m":1,"mt":"Linux, Networking, Git & Go Foundations","w":"Sat","t":"Lab (4h)","tp":"Configure an nginx reverse proxy with a TLS certificate","h":4},{"d":14,"m":1,"mt":"Linux, Networking, Git & Go Foundations","w":"Sun","t":"Weekly Revision","tp":"Networking flashcards + rebuild the nginx+TLS lab from memory","h":5},{"d":15,"m":1,"mt":"Linux, Networking, Git & Go Foundations","w":"Mon","t":"New Topic","tp":"Git basics: init, commit, branch, merge","h":3},{"d":16,"m":1,"mt":"Linux, Networking, Git & Go Foundations","w":"Tue","t":"New Topic","tp":"Git advanced: rebase, cherry-pick, resolving conflicts by hand","h":3},{"d":17,"m":1,"mt":"Linux, Networking, Git & Go Foundations","w":"Wed","t":"New Topic","tp":"Branching strategies: Gitflow vs trunk-based, PR workflows","h":3},{"d":18,"m":1,"mt":"Linux, Networking, Git & Go Foundations","w":"Thu","t":"New Topic","tp":"Go basics: syntax, variables, functions, packages","h":3},{"d":19,"m":1,"mt":"Linux, Networking, Git & Go Foundations","w":"Fri","t":"New Topic","tp":"Go basics: structs, interfaces, error handling","h":3},{"d":20,"m":1,"mt":"Linux, Networking, Git & Go Foundations","w":"Sat","t":"Lab (4h)","tp":"Build a small Go CLI tool (e.g. a file organizer)","h":4},{"d":21,"m":1,"mt":"Linux, Networking, Git & Go Foundations","w":"Sun","t":"Weekly Revision","tp":"Git commands drill + review your Go CLI code","h":5},{"d":22,"m":1,"mt":"Linux, Networking, Git & Go Foundations","w":"Mon","t":"Monthly Revision","tp":"Full Linux revision - redo hardest scripts under a timer, no notes","h":3},{"d":23,"m":1,"mt":"Linux, Networking, Git & Go Foundations","w":"Tue","t":"Monthly Revision","tp":"Full Networking revision - rebuild the nginx+TLS lab completely unaided","h":3},{"d":24,"m":1,"mt":"Linux, Networking, Git & Go Foundations","w":"Wed","t":"Monthly Revision","tp":"Full Git revision - practice resolving 5 different conflict scenarios","h":3},{"d":25,"m":1,"mt":"Linux, Networking, Git & Go Foundations","w":"Thu","t":"Monthly Revision","tp":"Go revision - rewrite the CLI tool from scratch with no reference","h":3},{"d":26,"m":1,"mt":"Linux, Networking, Git & Go Foundations","w":"Fri","t":"Monthly Revision","tp":"Mock quiz: Linux + Networking + Git combined (self-test, no notes)","h":3},{"d":27,"m":1,"mt":"Linux, Networking, Git & Go Foundations","w":"Sat","t":"Monthly Revision","tp":"Fix every weak area exposed by the mock quiz","h":4},{"d":28,"m":1,"mt":"Linux, Networking, Git & Go Foundations","w":"Sun","t":"Monthly Revision","tp":"Write a Month 1 summary cheat-sheet; plan Month 2 in detail","h":5},{"d":29,"m":2,"mt":"Go & Python Deep Dive + Docker","w":"Mon","t":"New Topic","tp":"Go concurrency: goroutines, channels","h":3},{"d":30,"m":2,"mt":"Go & Python Deep Dive + Docker","w":"Tue","t":"New Topic","tp":"Go concurrency: sync package, worker pools, context cancellation","h":3},{"d":31,"m":2,"mt":"Go & Python Deep Dive + Docker","w":"Wed","t":"New Topic","tp":"Go testing: unit tests, table-driven tests, mocking","h":3},{"d":32,"m":2,"mt":"Go & Python Deep Dive + Docker","w":"Thu","t":"New Topic","tp":"Go HTTP servers: net/http, building a REST API","h":3},{"d":33,"m":2,"mt":"Go & Python Deep Dive + Docker","w":"Fri","t":"New Topic","tp":"Go modules, dependency management, idiomatic project structure","h":3},{"d":34,"m":2,"mt":"Go & Python Deep Dive + Docker","w":"Sat","t":"Lab (4h)","tp":"Build a REST API in Go with tests","h":4},{"d":35,"m":2,"mt":"Go & Python Deep Dive + Docker","w":"Sun","t":"Weekly Revision","tp":"Go concurrency drills - rebuild worker pool pattern from memory","h":5},{"d":36,"m":2,"mt":"Go & Python Deep Dive + Docker","w":"Mon","t":"New Topic","tp":"Python refresher: scripting, virtual envs, pip/poetry","h":3},{"d":37,"m":2,"mt":"Go & Python Deep Dive + Docker","w":"Tue","t":"New Topic","tp":"Python for tooling: argparse, subprocess, file I/O automation","h":3},{"d":38,"m":2,"mt":"Go & Python Deep Dive + Docker","w":"Wed","t":"New Topic","tp":"Docker fundamentals: images, containers, Dockerfile basics","h":3},{"d":39,"m":2,"mt":"Go & Python Deep Dive + Docker","w":"Thu","t":"New Topic","tp":"Docker: multi-stage builds, layer caching, image size optimization","h":3},{"d":40,"m":2,"mt":"Go & Python Deep Dive + Docker","w":"Fri","t":"New Topic","tp":"Docker networking & volumes","h":3},{"d":41,"m":2,"mt":"Go & Python Deep Dive + Docker","w":"Sat","t":"Lab (4h)","tp":"Dockerize the Go REST API with a minimal multi-stage image","h":4},{"d":42,"m":2,"mt":"Go & Python Deep Dive + Docker","w":"Sun","t":"Weekly Revision","tp":"Docker commands + image-size optimization drill","h":5},{"d":43,"m":2,"mt":"Go & Python Deep Dive + Docker","w":"Mon","t":"New Topic","tp":"Docker Compose: multi-container applications","h":3},{"d":44,"m":2,"mt":"Go & Python Deep Dive + Docker","w":"Tue","t":"New Topic","tp":"Docker security: non-root users, image scanning with Trivy","h":3},{"d":45,"m":2,"mt":"Go & Python Deep Dive + Docker","w":"Wed","t":"New Topic","tp":"Container registries: Docker Hub, ECR/GCR basics","h":3},{"d":46,"m":2,"mt":"Go & Python Deep Dive + Docker","w":"Thu","t":"New Topic","tp":"Debugging containers: logs, exec, health checks","h":3},{"d":47,"m":2,"mt":"Go & Python Deep Dive + Docker","w":"Fri","t":"New Topic","tp":"Intro to container orchestration - why Kubernetes exists","h":3},{"d":48,"m":2,"mt":"Go & Python Deep Dive + Docker","w":"Sat","t":"Lab (4h)","tp":"Build a docker-compose stack: API + Postgres + Redis","h":4},{"d":49,"m":2,"mt":"Go & Python Deep Dive + Docker","w":"Sun","t":"Weekly Revision","tp":"Review and simplify the docker-compose stack","h":5},{"d":50,"m":2,"mt":"Go & Python Deep Dive + Docker","w":"Mon","t":"Monthly Revision","tp":"Full Go revision - rebuild the REST API completely unaided","h":3},{"d":51,"m":2,"mt":"Go & Python Deep Dive + Docker","w":"Tue","t":"Monthly Revision","tp":"Full Docker revision - rebuild the multi-stage Dockerfile from memory","h":3},{"d":52,"m":2,"mt":"Go & Python Deep Dive + Docker","w":"Wed","t":"Monthly Revision","tp":"Python tooling revision - write 2 new automation scripts","h":3},{"d":53,"m":2,"mt":"Go & Python Deep Dive + Docker","w":"Thu","t":"Monthly Revision","tp":"Mock quiz: Go + Docker combined","h":3},{"d":54,"m":2,"mt":"Go & Python Deep Dive + Docker","w":"Fri","t":"Monthly Revision","tp":"Fix every weak area exposed by the mock quiz","h":3},{"d":55,"m":2,"mt":"Go & Python Deep Dive + Docker","w":"Sat","t":"Monthly Revision","tp":"Read and annotate a real open-source Go service + its Dockerfile","h":4},{"d":56,"m":2,"mt":"Go & Python Deep Dive + Docker","w":"Sun","t":"Monthly Revision","tp":"Write a Month 2 summary cheat-sheet; plan Month 3 in detail","h":5},{"d":57,"m":3,"mt":"Kubernetes Fundamentals","w":"Mon","t":"New Topic","tp":"Kubernetes architecture: control plane, nodes, kubelet, etcd","h":3},{"d":58,"m":3,"mt":"Kubernetes Fundamentals","w":"Tue","t":"New Topic","tp":"Pods, ReplicaSets, Deployments","h":3},{"d":59,"m":3,"mt":"Kubernetes Fundamentals","w":"Wed","t":"New Topic","tp":"Services: ClusterIP, NodePort, LoadBalancer","h":3},{"d":60,"m":3,"mt":"Kubernetes Fundamentals","w":"Thu","t":"New Topic","tp":"ConfigMaps & Secrets","h":3},{"d":61,"m":3,"mt":"Kubernetes Fundamentals","w":"Fri","t":"New Topic","tp":"Namespaces, labels, selectors","h":3},{"d":62,"m":3,"mt":"Kubernetes Fundamentals","w":"Sat","t":"Lab (4h)","tp":"Deploy the dockerized Go API to a local cluster (minikube/kind)","h":4},{"d":63,"m":3,"mt":"Kubernetes Fundamentals","w":"Sun","t":"Weekly Revision","tp":"kubectl command drill - practice from memory, no cheat sheet","h":5},{"d":64,"m":3,"mt":"Kubernetes Fundamentals","w":"Mon","t":"New Topic","tp":"Ingress controllers & routing","h":3},{"d":65,"m":3,"mt":"Kubernetes Fundamentals","w":"Tue","t":"New Topic","tp":"StatefulSets & persistent storage (PV/PVC)","h":3},{"d":66,"m":3,"mt":"Kubernetes Fundamentals","w":"Wed","t":"New Topic","tp":"DaemonSets & Jobs/CronJobs","h":3},{"d":67,"m":3,"mt":"Kubernetes Fundamentals","w":"Thu","t":"New Topic","tp":"Resource requests/limits, QoS classes","h":3},{"d":68,"m":3,"mt":"Kubernetes Fundamentals","w":"Fri","t":"New Topic","tp":"Health checks: liveness, readiness, startup probes","h":3},{"d":69,"m":3,"mt":"Kubernetes Fundamentals","w":"Sat","t":"Lab (4h)","tp":"Deploy a stateful app (Postgres) with a PVC on Kubernetes","h":4},{"d":70,"m":3,"mt":"Kubernetes Fundamentals","w":"Sun","t":"Weekly Revision","tp":"Troubleshoot 3 intentionally-broken pod scenarios","h":5},{"d":71,"m":3,"mt":"Kubernetes Fundamentals","w":"Mon","t":"New Topic","tp":"Horizontal Pod Autoscaler (HPA)","h":3},{"d":72,"m":3,"mt":"Kubernetes Fundamentals","w":"Tue","t":"New Topic","tp":"RBAC & service accounts","h":3},{"d":73,"m":3,"mt":"Kubernetes Fundamentals","w":"Wed","t":"New Topic","tp":"Network policies","h":3},{"d":74,"m":3,"mt":"Kubernetes Fundamentals","w":"Thu","t":"New Topic","tp":"Debugging Kubernetes: describe/logs/exec, common failure patterns","h":3},{"d":75,"m":3,"mt":"Kubernetes Fundamentals","w":"Fri","t":"New Topic","tp":"Helm basics: charts, templating","h":3},{"d":76,"m":3,"mt":"Kubernetes Fundamentals","w":"Sat","t":"Lab (4h)","tp":"Package your app as a Helm chart and deploy it with HPA enabled","h":4},{"d":77,"m":3,"mt":"Kubernetes Fundamentals","w":"Sun","t":"Weekly Revision","tp":"Helm + HPA review - redeploy from a fresh cluster","h":5},{"d":78,"m":3,"mt":"Kubernetes Fundamentals","w":"Mon","t":"Monthly Revision","tp":"Full K8s architecture revision - diagram the whole system from memory","h":3},{"d":79,"m":3,"mt":"Kubernetes Fundamentals","w":"Tue","t":"Monthly Revision","tp":"Rebuild the full stack (API+DB+Ingress+HPA) from scratch, unaided","h":3},{"d":80,"m":3,"mt":"Kubernetes Fundamentals","w":"Wed","t":"Monthly Revision","tp":"Debugging drill - intentionally break your cluster, then fix it","h":3},{"d":81,"m":3,"mt":"Kubernetes Fundamentals","w":"Thu","t":"Monthly Revision","tp":"Mock quiz: Kubernetes fundamentals","h":3},{"d":82,"m":3,"mt":"Kubernetes Fundamentals","w":"Fri","t":"Monthly Revision","tp":"Fix every weak area exposed by the mock quiz","h":3},{"d":83,"m":3,"mt":"Kubernetes Fundamentals","w":"Sat","t":"Monthly Revision","tp":"Deep-read the Kubernetes docs on scheduling & eviction","h":4},{"d":84,"m":3,"mt":"Kubernetes Fundamentals","w":"Sun","t":"Monthly Revision","tp":"Write a Month 3 summary cheat-sheet; plan Month 4 in detail","h":5},{"d":85,"m":4,"mt":"Advanced Kubernetes + Knative + GPU Scheduling","w":"Mon","t":"New Topic","tp":"Custom Resource Definitions (CRDs) - concepts","h":3},{"d":86,"m":4,"mt":"Advanced Kubernetes + Knative + GPU Scheduling","w":"Tue","t":"New Topic","tp":"Writing a basic CRD + controller (client-go intro)","h":3},{"d":87,"m":4,"mt":"Advanced Kubernetes + Knative + GPU Scheduling","w":"Wed","t":"New Topic","tp":"Operator pattern - how it works (e.g. Postgres operator)","h":3},{"d":88,"m":4,"mt":"Advanced Kubernetes + Knative + GPU Scheduling","w":"Thu","t":"New Topic","tp":"Admission controllers & webhooks","h":3},{"d":89,"m":4,"mt":"Advanced Kubernetes + Knative + GPU Scheduling","w":"Fri","t":"New Topic","tp":"Cluster autoscaler concepts","h":3},{"d":90,"m":4,"mt":"Advanced Kubernetes + Knative + GPU Scheduling","w":"Sat","t":"Lab (4h)","tp":"Write and deploy a simple custom controller","h":4},{"d":91,"m":4,"mt":"Advanced Kubernetes + Knative + GPU Scheduling","w":"Sun","t":"Weekly Revision","tp":"CRD/controller review - explain the reconcile loop out loud","h":5},{"d":92,"m":4,"mt":"Advanced Kubernetes + Knative + GPU Scheduling","w":"Mon","t":"New Topic","tp":"Knative Serving: concepts, scale-to-zero","h":3},{"d":93,"m":4,"mt":"Advanced Kubernetes + Knative + GPU Scheduling","w":"Tue","t":"New Topic","tp":"Knative Serving: deploying a service, traffic splitting","h":3},{"d":94,"m":4,"mt":"Advanced Kubernetes + Knative + GPU Scheduling","w":"Wed","t":"New Topic","tp":"Knative Eventing basics","h":3},{"d":95,"m":4,"mt":"Advanced Kubernetes + Knative + GPU Scheduling","w":"Thu","t":"New Topic","tp":"Service mesh concepts: Istio/Linkerd basics","h":3},{"d":96,"m":4,"mt":"Advanced Kubernetes + Knative + GPU Scheduling","w":"Fri","t":"New Topic","tp":"GPU scheduling in Kubernetes: device plugins intro","h":3},{"d":97,"m":4,"mt":"Advanced Kubernetes + Knative + GPU Scheduling","w":"Sat","t":"Lab (4h)","tp":"Deploy a service on Knative with scale-to-zero and traffic splitting","h":4},{"d":98,"m":4,"mt":"Advanced Kubernetes + Knative + GPU Scheduling","w":"Sun","t":"Weekly Revision","tp":"Knative concepts drill - redeploy without referring to notes","h":5},{"d":99,"m":4,"mt":"Advanced Kubernetes + Knative + GPU Scheduling","w":"Mon","t":"New Topic","tp":"GPU device plugins deep dive, node taints/tolerations for GPU nodes","h":3},{"d":100,"m":4,"mt":"Advanced Kubernetes + Knative + GPU Scheduling","w":"Tue","t":"New Topic","tp":"Fractional GPU concepts (MIG, time-slicing)","h":3},{"d":101,"m":4,"mt":"Advanced Kubernetes + Knative + GPU Scheduling","w":"Wed","t":"New Topic","tp":"Multi-cluster / multi-cloud Kubernetes concepts","h":3},{"d":102,"m":4,"mt":"Advanced Kubernetes + Knative + GPU Scheduling","w":"Thu","t":"New Topic","tp":"KEDA - event-driven autoscaling","h":3},{"d":103,"m":4,"mt":"Advanced Kubernetes + Knative + GPU Scheduling","w":"Fri","t":"New Topic","tp":"Cost optimization in Kubernetes (bin packing, spot instances)","h":3},{"d":104,"m":4,"mt":"Advanced Kubernetes + Knative + GPU Scheduling","w":"Sat","t":"Lab (4h)","tp":"Simulate GPU taints/tolerations; deploy a workload requesting a GPU resource","h":4},{"d":105,"m":4,"mt":"Advanced Kubernetes + Knative + GPU Scheduling","w":"Sun","t":"Weekly Revision","tp":"GPU scheduling review","h":5},{"d":106,"m":4,"mt":"Advanced Kubernetes + Knative + GPU Scheduling","w":"Mon","t":"Monthly Revision","tp":"Full Knative revision - redeploy the service completely unaided","h":3},{"d":107,"m":4,"mt":"Advanced Kubernetes + Knative + GPU Scheduling","w":"Tue","t":"Monthly Revision","tp":"Full CRD/controller revision - rebuild it from scratch","h":3},{"d":108,"m":4,"mt":"Advanced Kubernetes + Knative + GPU Scheduling","w":"Wed","t":"Monthly Revision","tp":"GPU scheduling revision - teach-back method (explain out loud)","h":3},{"d":109,"m":4,"mt":"Advanced Kubernetes + Knative + GPU Scheduling","w":"Thu","t":"Monthly Revision","tp":"Mock quiz: Advanced Kubernetes + Knative + GPU scheduling","h":3},{"d":110,"m":4,"mt":"Advanced Kubernetes + Knative + GPU Scheduling","w":"Fri","t":"Monthly Revision","tp":"Fix every weak area exposed by the mock quiz","h":3},{"d":111,"m":4,"mt":"Advanced Kubernetes + Knative + GPU Scheduling","w":"Sat","t":"Monthly Revision","tp":"Read Baseten's engineering blog and the KServe/Knative GitHub issues","h":4},{"d":112,"m":4,"mt":"Advanced Kubernetes + Knative + GPU Scheduling","w":"Sun","t":"Monthly Revision","tp":"Write a Month 4 summary cheat-sheet; plan Month 5 in detail","h":5},{"d":113,"m":5,"mt":"Terraform / IaC + CI/CD + GitOps","w":"Mon","t":"New Topic","tp":"Terraform basics: providers, resources, state","h":3},{"d":114,"m":5,"mt":"Terraform / IaC + CI/CD + GitOps","w":"Tue","t":"New Topic","tp":"Terraform: variables, outputs, modules","h":3},{"d":115,"m":5,"mt":"Terraform / IaC + CI/CD + GitOps","w":"Wed","t":"New Topic","tp":"Terraform: remote state, workspaces","h":3},{"d":116,"m":5,"mt":"Terraform / IaC + CI/CD + GitOps","w":"Thu","t":"New Topic","tp":"Terraform: provisioning AWS resources (VPC, EC2)","h":3},{"d":117,"m":5,"mt":"Terraform / IaC + CI/CD + GitOps","w":"Fri","t":"New Topic","tp":"Terraform: provisioning an EKS cluster","h":3},{"d":118,"m":5,"mt":"Terraform / IaC + CI/CD + GitOps","w":"Sat","t":"Lab (4h)","tp":"Provision a VPC + EKS cluster via Terraform","h":4},{"d":119,"m":5,"mt":"Terraform / IaC + CI/CD + GitOps","w":"Sun","t":"Weekly Revision","tp":"Terraform command drill - plan/apply/destroy from memory","h":5},{"d":120,"m":5,"mt":"Terraform / IaC + CI/CD + GitOps","w":"Mon","t":"New Topic","tp":"Terraform best practices: state locking, secrets, module reuse","h":3},{"d":121,"m":5,"mt":"Terraform / IaC + CI/CD + GitOps","w":"Tue","t":"New Topic","tp":"Pulumi basics (conceptual comparison to Terraform)","h":3},{"d":122,"m":5,"mt":"Terraform / IaC + CI/CD + GitOps","w":"Wed","t":"New Topic","tp":"CI/CD concepts: pipelines, stages, artifacts","h":3},{"d":123,"m":5,"mt":"Terraform / IaC + CI/CD + GitOps","w":"Thu","t":"New Topic","tp":"GitHub Actions: writing workflows","h":3},{"d":124,"m":5,"mt":"Terraform / IaC + CI/CD + GitOps","w":"Fri","t":"New Topic","tp":"GitHub Actions: build/test/deploy pipeline for Docker + Kubernetes","h":3},{"d":125,"m":5,"mt":"Terraform / IaC + CI/CD + GitOps","w":"Sat","t":"Lab (4h)","tp":"Build a full CI/CD pipeline: build image -> push to registry -> deploy to K8s","h":4},{"d":126,"m":5,"mt":"Terraform / IaC + CI/CD + GitOps","w":"Sun","t":"Weekly Revision","tp":"CI/CD pipeline review - break it, then fix it","h":5},{"d":127,"m":5,"mt":"Terraform / IaC + CI/CD + GitOps","w":"Mon","t":"New Topic","tp":"GitLab CI / Jenkins basics (comparison to GitHub Actions)","h":3},{"d":128,"m":5,"mt":"Terraform / IaC + CI/CD + GitOps","w":"Tue","t":"New Topic","tp":"Deployment strategies: blue-green, canary, rolling","h":3},{"d":129,"m":5,"mt":"Terraform / IaC + CI/CD + GitOps","w":"Wed","t":"New Topic","tp":"GitOps concepts: ArgoCD / Flux basics","h":3},{"d":130,"m":5,"mt":"Terraform / IaC + CI/CD + GitOps","w":"Thu","t":"New Topic","tp":"Secrets management: Vault basics, sealed-secrets","h":3},{"d":131,"m":5,"mt":"Terraform / IaC + CI/CD + GitOps","w":"Fri","t":"New Topic","tp":"Infra security basics: least-privilege IAM, image scanning in CI","h":3},{"d":132,"m":5,"mt":"Terraform / IaC + CI/CD + GitOps","w":"Sat","t":"Lab (4h)","tp":"Set up ArgoCD for GitOps-based deployment","h":4},{"d":133,"m":5,"mt":"Terraform / IaC + CI/CD + GitOps","w":"Sun","t":"Weekly Revision","tp":"GitOps + deployment-strategy review","h":5},{"d":134,"m":5,"mt":"Terraform / IaC + CI/CD + GitOps","w":"Mon","t":"Monthly Revision","tp":"Full Terraform revision - destroy and rebuild infra from scratch","h":3},{"d":135,"m":5,"mt":"Terraform / IaC + CI/CD + GitOps","w":"Tue","t":"Monthly Revision","tp":"Full CI/CD revision - rebuild the pipeline completely unaided","h":3},{"d":136,"m":5,"mt":"Terraform / IaC + CI/CD + GitOps","w":"Wed","t":"Monthly Revision","tp":"GitOps revision - redo the ArgoCD setup","h":3},{"d":137,"m":5,"mt":"Terraform / IaC + CI/CD + GitOps","w":"Thu","t":"Monthly Revision","tp":"Mock quiz: Terraform + CI/CD + GitOps","h":3},{"d":138,"m":5,"mt":"Terraform / IaC + CI/CD + GitOps","w":"Fri","t":"Monthly Revision","tp":"Fix every weak area exposed by the mock quiz","h":3},{"d":139,"m":5,"mt":"Terraform / IaC + CI/CD + GitOps","w":"Sat","t":"Monthly Revision","tp":"Cost review - tear down unused cloud resources; document IaC learnings","h":4},{"d":140,"m":5,"mt":"Terraform / IaC + CI/CD + GitOps","w":"Sun","t":"Monthly Revision","tp":"Write a Month 5 summary cheat-sheet; plan Month 6 in detail","h":5},{"d":141,"m":6,"mt":"Observability + Databases","w":"Mon","t":"New Topic","tp":"Prometheus: architecture, metrics types, PromQL basics","h":3},{"d":142,"m":6,"mt":"Observability + Databases","w":"Tue","t":"New Topic","tp":"Prometheus: exporters, scraping configs","h":3},{"d":143,"m":6,"mt":"Observability + Databases","w":"Wed","t":"New Topic","tp":"Grafana: dashboards, panels, alerting","h":3},{"d":144,"m":6,"mt":"Observability + Databases","w":"Thu","t":"New Topic","tp":"OpenTelemetry: tracing concepts, instrumentation basics","h":3},{"d":145,"m":6,"mt":"Observability + Databases","w":"Fri","t":"New Topic","tp":"Distributed tracing in practice (Jaeger/Tempo)","h":3},{"d":146,"m":6,"mt":"Observability + Databases","w":"Sat","t":"Lab (4h)","tp":"Instrument your Go API with Prometheus metrics + a Grafana dashboard","h":4},{"d":147,"m":6,"mt":"Observability + Databases","w":"Sun","t":"Weekly Revision","tp":"PromQL drill - write 10 queries from memory","h":5},{"d":148,"m":6,"mt":"Observability + Databases","w":"Mon","t":"New Topic","tp":"ELK/Loki stack: log aggregation concepts","h":3},{"d":149,"m":6,"mt":"Observability + Databases","w":"Tue","t":"New Topic","tp":"Structured logging best practices","h":3},{"d":150,"m":6,"mt":"Observability + Databases","w":"Wed","t":"New Topic","tp":"Alerting strategy: SLIs, SLOs, error budgets","h":3},{"d":151,"m":6,"mt":"Observability + Databases","w":"Thu","t":"New Topic","tp":"Postgres deep dive: indexing, query optimization","h":3},{"d":152,"m":6,"mt":"Observability + Databases","w":"Fri","t":"New Topic","tp":"Postgres: replication, connection pooling (PgBouncer)","h":3},{"d":153,"m":6,"mt":"Observability + Databases","w":"Sat","t":"Lab (4h)","tp":"Set up centralized logging (Loki or ELK) for your stack","h":4},{"d":154,"m":6,"mt":"Observability + Databases","w":"Sun","t":"Weekly Revision","tp":"SLO/SLI concepts + logging pipeline review","h":5},{"d":155,"m":6,"mt":"Observability + Databases","w":"Mon","t":"New Topic","tp":"Redis deep dive: caching strategies, data structures","h":3},{"d":156,"m":6,"mt":"Observability + Databases","w":"Tue","t":"New Topic","tp":"Redis: persistence, replication, cluster mode","h":3},{"d":157,"m":6,"mt":"Observability + Databases","w":"Wed","t":"New Topic","tp":"Incident response basics: on-call rotations, postmortems","h":3},{"d":158,"m":6,"mt":"Observability + Databases","w":"Thu","t":"New Topic","tp":"Chaos engineering concepts (intro)","h":3},{"d":159,"m":6,"mt":"Observability + Databases","w":"Fri","t":"New Topic","tp":"Full observability stack integration review","h":3},{"d":160,"m":6,"mt":"Observability + Databases","w":"Sat","t":"Lab (4h)","tp":"Add Redis caching to your API; assemble a full metrics+logs+traces stack","h":4},{"d":161,"m":6,"mt":"Observability + Databases","w":"Sun","t":"Weekly Revision","tp":"Full-stack observability review","h":5},{"d":162,"m":6,"mt":"Observability + Databases","w":"Mon","t":"Monthly Revision","tp":"Full Prometheus/Grafana revision - rebuild dashboards unaided","h":3},{"d":163,"m":6,"mt":"Observability + Databases","w":"Tue","t":"Monthly Revision","tp":"Full logging-stack revision","h":3},{"d":164,"m":6,"mt":"Observability + Databases","w":"Wed","t":"Monthly Revision","tp":"Postgres/Redis revision - optimize a slow query, debug a cache issue","h":3},{"d":165,"m":6,"mt":"Observability + Databases","w":"Thu","t":"Monthly Revision","tp":"Mock quiz: Observability + Databases","h":3},{"d":166,"m":6,"mt":"Observability + Databases","w":"Fri","t":"Monthly Revision","tp":"Fix every weak area exposed by the mock quiz","h":3},{"d":167,"m":6,"mt":"Observability + Databases","w":"Sat","t":"Monthly Revision","tp":"Write a postmortem for a simulated incident (practice exercise)","h":4},{"d":168,"m":6,"mt":"Observability + Databases","w":"Sun","t":"Monthly Revision","tp":"Write a Month 6 summary cheat-sheet; plan Month 7 in detail","h":5},{"d":169,"m":7,"mt":"AWS Deep Dive","w":"Mon","t":"New Topic","tp":"IAM deep dive: roles, policies, least privilege","h":3},{"d":170,"m":7,"mt":"AWS Deep Dive","w":"Tue","t":"New Topic","tp":"VPC deep dive: subnets, NAT, security groups, peering","h":3},{"d":171,"m":7,"mt":"AWS Deep Dive","w":"Wed","t":"New Topic","tp":"EC2, Auto Scaling Groups, Launch Templates","h":3},{"d":172,"m":7,"mt":"AWS Deep Dive","w":"Thu","t":"New Topic","tp":"EKS deep dive: node groups, Fargate, IRSA","h":3},{"d":173,"m":7,"mt":"AWS Deep Dive","w":"Fri","t":"New Topic","tp":"S3: storage classes, lifecycle policies, security","h":3},{"d":174,"m":7,"mt":"AWS Deep Dive","w":"Sat","t":"Lab (4h)","tp":"Architect a secure VPC + EKS setup with IAM roles for service accounts","h":4},{"d":175,"m":7,"mt":"AWS Deep Dive","w":"Sun","t":"Weekly Revision","tp":"AWS IAM/VPC drill - explain trust policies from memory","h":5},{"d":176,"m":7,"mt":"AWS Deep Dive","w":"Mon","t":"New Topic","tp":"ALB/NLB, Route53, CloudFront basics","h":3},{"d":177,"m":7,"mt":"AWS Deep Dive","w":"Tue","t":"New Topic","tp":"RDS: managed Postgres, backups, failover","h":3},{"d":178,"m":7,"mt":"AWS Deep Dive","w":"Wed","t":"New Topic","tp":"ElastiCache (managed Redis)","h":3},{"d":179,"m":7,"mt":"AWS Deep Dive","w":"Thu","t":"New Topic","tp":"CloudWatch: metrics, logs, alarms","h":3},{"d":180,"m":7,"mt":"AWS Deep Dive","w":"Fri","t":"New Topic","tp":"AWS cost optimization: Reserved/Spot instances, Cost Explorer","h":3},{"d":181,"m":7,"mt":"AWS Deep Dive","w":"Sat","t":"Lab (4h)","tp":"Migrate your app's DB/cache to managed AWS services (RDS/ElastiCache)","h":4},{"d":182,"m":7,"mt":"AWS Deep Dive","w":"Sun","t":"Weekly Revision","tp":"AWS networking + cost-optimization review","h":5},{"d":183,"m":7,"mt":"AWS Deep Dive","w":"Mon","t":"New Topic","tp":"EKS + GPU nodes: g4/g5/p4 instance types, GPU node groups","h":3},{"d":184,"m":7,"mt":"AWS Deep Dive","w":"Tue","t":"New Topic","tp":"AWS security: GuardDuty, security groups vs NACLs, encryption at rest/in transit","h":3},{"d":185,"m":7,"mt":"AWS Deep Dive","w":"Wed","t":"New Topic","tp":"Multi-account strategy, AWS Organizations basics","h":3},{"d":186,"m":7,"mt":"AWS Deep Dive","w":"Thu","t":"New Topic","tp":"AWS Solutions-Architect-style review (core exam topics)","h":3},{"d":187,"m":7,"mt":"AWS Deep Dive","w":"Fri","t":"New Topic","tp":"Catch-up / deepen weakest AWS topic so far","h":3},{"d":188,"m":7,"mt":"AWS Deep Dive","w":"Sat","t":"Lab (4h)","tp":"Set up a GPU node group on EKS and deploy a GPU workload","h":4},{"d":189,"m":7,"mt":"AWS Deep Dive","w":"Sun","t":"Weekly Revision","tp":"GPU node group review","h":5},{"d":190,"m":7,"mt":"AWS Deep Dive","w":"Mon","t":"Monthly Revision","tp":"Full AWS networking revision - rebuild the VPC from scratch","h":3},{"d":191,"m":7,"mt":"AWS Deep Dive","w":"Tue","t":"Monthly Revision","tp":"Full EKS+GPU revision - rebuild the GPU node group unaided","h":3},{"d":192,"m":7,"mt":"AWS Deep Dive","w":"Wed","t":"Monthly Revision","tp":"AWS security revision - audit your setup for least privilege","h":3},{"d":193,"m":7,"mt":"AWS Deep Dive","w":"Thu","t":"Monthly Revision","tp":"Mock quiz: AWS deep dive","h":3},{"d":194,"m":7,"mt":"AWS Deep Dive","w":"Fri","t":"Monthly Revision","tp":"Fix every weak area exposed by the mock quiz","h":3},{"d":195,"m":7,"mt":"AWS Deep Dive","w":"Sat","t":"Monthly Revision","tp":"Practice AWS Solutions-Architect-style scenario questions","h":4},{"d":196,"m":7,"mt":"AWS Deep Dive","w":"Sun","t":"Monthly Revision","tp":"Write a Month 7 summary cheat-sheet; plan Month 8 in detail","h":5},{"d":197,"m":8,"mt":"GCP + Multi-Cloud + Security","w":"Mon","t":"New Topic","tp":"GCP fundamentals: projects, IAM, VPC","h":3},{"d":198,"m":8,"mt":"GCP + Multi-Cloud + Security","w":"Tue","t":"New Topic","tp":"GKE deep dive: node pools, Autopilot vs Standard","h":3},{"d":199,"m":8,"mt":"GCP + Multi-Cloud + Security","w":"Wed","t":"New Topic","tp":"GKE + GPU: accelerator node pools","h":3},{"d":200,"m":8,"mt":"GCP + Multi-Cloud + Security","w":"Thu","t":"New Topic","tp":"Cloud Storage, Cloud SQL basics","h":3},{"d":201,"m":8,"mt":"GCP + Multi-Cloud + Security","w":"Fri","t":"New Topic","tp":"GCP networking: load balancing, Cloud NAT","h":3},{"d":202,"m":8,"mt":"GCP + Multi-Cloud + Security","w":"Sat","t":"Lab (4h)","tp":"Deploy your app to GKE with a GPU node pool","h":4},{"d":203,"m":8,"mt":"GCP + Multi-Cloud + Security","w":"Sun","t":"Weekly Revision","tp":"GCP core services drill","h":5},{"d":204,"m":8,"mt":"GCP + Multi-Cloud + Security","w":"Mon","t":"New Topic","tp":"Multi-cloud architecture patterns & tradeoffs","h":3},{"d":205,"m":8,"mt":"GCP + Multi-Cloud + Security","w":"Tue","t":"New Topic","tp":"Multi-cloud capacity management concepts (why Baseten does this)","h":3},{"d":206,"m":8,"mt":"GCP + Multi-Cloud + Security","w":"Wed","t":"New Topic","tp":"Cross-cloud networking (VPNs, peering, mesh across clouds)","h":3},{"d":207,"m":8,"mt":"GCP + Multi-Cloud + Security","w":"Thu","t":"New Topic","tp":"Terraform for multi-cloud (AWS + GCP in one workspace)","h":3},{"d":208,"m":8,"mt":"GCP + Multi-Cloud + Security","w":"Fri","t":"New Topic","tp":"Disaster recovery & failover strategies","h":3},{"d":209,"m":8,"mt":"GCP + Multi-Cloud + Security","w":"Sat","t":"Lab (4h)","tp":"Provision equivalent infra on both AWS and GCP via Terraform modules","h":4},{"d":210,"m":8,"mt":"GCP + Multi-Cloud + Security","w":"Sun","t":"Weekly Revision","tp":"Multi-cloud architecture review","h":5},{"d":211,"m":8,"mt":"GCP + Multi-Cloud + Security","w":"Mon","t":"New Topic","tp":"Supply chain security: SBOM, image signing (cosign)","h":3},{"d":212,"m":8,"mt":"GCP + Multi-Cloud + Security","w":"Tue","t":"New Topic","tp":"Secrets management deep dive: Vault setup & policies","h":3},{"d":213,"m":8,"mt":"GCP + Multi-Cloud + Security","w":"Wed","t":"New Topic","tp":"Zero-trust networking concepts","h":3},{"d":214,"m":8,"mt":"GCP + Multi-Cloud + Security","w":"Thu","t":"New Topic","tp":"Compliance basics relevant to infra (SOC2 concepts, high level)","h":3},{"d":215,"m":8,"mt":"GCP + Multi-Cloud + Security","w":"Fri","t":"New Topic","tp":"Security incident tabletop exercise (simulate a breach, respond)","h":3},{"d":216,"m":8,"mt":"GCP + Multi-Cloud + Security","w":"Sat","t":"Lab (4h)","tp":"Implement image signing + Vault-based secrets in your pipeline","h":4},{"d":217,"m":8,"mt":"GCP + Multi-Cloud + Security","w":"Sun","t":"Weekly Revision","tp":"Security stack review","h":5},{"d":218,"m":8,"mt":"GCP + Multi-Cloud + Security","w":"Mon","t":"Monthly Revision","tp":"Full GCP/GKE revision - rebuild the GPU node pool unaided","h":3},{"d":219,"m":8,"mt":"GCP + Multi-Cloud + Security","w":"Tue","t":"Monthly Revision","tp":"Full multi-cloud revision - redo the Terraform modules","h":3},{"d":220,"m":8,"mt":"GCP + Multi-Cloud + Security","w":"Wed","t":"Monthly Revision","tp":"Full security revision - audit your entire stack end-to-end","h":3},{"d":221,"m":8,"mt":"GCP + Multi-Cloud + Security","w":"Thu","t":"Monthly Revision","tp":"Mock quiz: GCP + multi-cloud + security","h":3},{"d":222,"m":8,"mt":"GCP + Multi-Cloud + Security","w":"Fri","t":"Monthly Revision","tp":"Fix every weak area exposed by the mock quiz","h":3},{"d":223,"m":8,"mt":"GCP + Multi-Cloud + Security","w":"Sat","t":"Monthly Revision","tp":"Write an AWS-vs-GCP decision-matrix doc (good portfolio artifact)","h":4},{"d":224,"m":8,"mt":"GCP + Multi-Cloud + Security","w":"Sun","t":"Monthly Revision","tp":"Write a Month 8 summary cheat-sheet; plan Month 9 in detail","h":5},{"d":225,"m":9,"mt":"GPU/CUDA + Model Serving Internals","w":"Mon","t":"New Topic","tp":"GPU computing basics: what CUDA does, memory hierarchy (conceptual)","h":3},{"d":226,"m":9,"mt":"GPU/CUDA + Model Serving Internals","w":"Tue","t":"New Topic","tp":"NVIDIA drivers & container toolkit (nvidia-container-runtime)","h":3},{"d":227,"m":9,"mt":"GPU/CUDA + Model Serving Internals","w":"Wed","t":"New Topic","tp":"Model serving concepts: batching, request queuing","h":3},{"d":228,"m":9,"mt":"GPU/CUDA + Model Serving Internals","w":"Thu","t":"New Topic","tp":"Cold-start problem & mitigation strategies","h":3},{"d":229,"m":9,"mt":"GPU/CUDA + Model Serving Internals","w":"Fri","t":"New Topic","tp":"Autoscaling to zero for GPU workloads","h":3},{"d":230,"m":9,"mt":"GPU/CUDA + Model Serving Internals","w":"Sat","t":"Lab (4h)","tp":"Run a GPU-enabled container in the cloud; verify CUDA access","h":4},{"d":231,"m":9,"mt":"GPU/CUDA + Model Serving Internals","w":"Sun","t":"Weekly Revision","tp":"GPU/CUDA concepts drill","h":5},{"d":232,"m":9,"mt":"GPU/CUDA + Model Serving Internals","w":"Mon","t":"New Topic","tp":"Inference servers overview: Triton, TorchServe, vLLM, KServe","h":3},{"d":233,"m":9,"mt":"GPU/CUDA + Model Serving Internals","w":"Tue","t":"New Topic","tp":"vLLM deep dive: continuous batching, PagedAttention concepts","h":3},{"d":234,"m":9,"mt":"GPU/CUDA + Model Serving Internals","w":"Wed","t":"New Topic","tp":"Model parallelism basics: tensor parallel vs pipeline parallel","h":3},{"d":235,"m":9,"mt":"GPU/CUDA + Model Serving Internals","w":"Thu","t":"New Topic","tp":"Multi-node inference concepts","h":3},{"d":236,"m":9,"mt":"GPU/CUDA + Model Serving Internals","w":"Fri","t":"New Topic","tp":"Quantization basics (why it matters for serving cost/latency)","h":3},{"d":237,"m":9,"mt":"GPU/CUDA + Model Serving Internals","w":"Sat","t":"Lab (4h)","tp":"Deploy a small open-source LLM using vLLM or Triton","h":4},{"d":238,"m":9,"mt":"GPU/CUDA + Model Serving Internals","w":"Sun","t":"Weekly Revision","tp":"Inference-server concepts drill","h":5},{"d":239,"m":9,"mt":"GPU/CUDA + Model Serving Internals","w":"Mon","t":"New Topic","tp":"Fractional GPU / MIG deep dive","h":3},{"d":240,"m":9,"mt":"GPU/CUDA + Model Serving Internals","w":"Tue","t":"New Topic","tp":"GPU capacity management & bin-packing strategies","h":3},{"d":241,"m":9,"mt":"GPU/CUDA + Model Serving Internals","w":"Wed","t":"New Topic","tp":"Latency/throughput tradeoffs, benchmarking inference","h":3},{"d":242,"m":9,"mt":"GPU/CUDA + Model Serving Internals","w":"Thu","t":"New Topic","tp":"Cost modeling for GPU inference at scale","h":3},{"d":243,"m":9,"mt":"GPU/CUDA + Model Serving Internals","w":"Fri","t":"New Topic","tp":"Review: how Knative + Kubernetes + GPU scheduling fit together end-to-end","h":3},{"d":244,"m":9,"mt":"GPU/CUDA + Model Serving Internals","w":"Sat","t":"Lab (4h)","tp":"Benchmark your deployed model's latency/throughput under load (Locust/k6)","h":4},{"d":245,"m":9,"mt":"GPU/CUDA + Model Serving Internals","w":"Sun","t":"Weekly Revision","tp":"Full model-serving stack review","h":5},{"d":246,"m":9,"mt":"GPU/CUDA + Model Serving Internals","w":"Mon","t":"Monthly Revision","tp":"Full GPU/CUDA revision","h":3},{"d":247,"m":9,"mt":"GPU/CUDA + Model Serving Internals","w":"Tue","t":"Monthly Revision","tp":"Full inference-server revision - redeploy vLLM/Triton unaided","h":3},{"d":248,"m":9,"mt":"GPU/CUDA + Model Serving Internals","w":"Wed","t":"Monthly Revision","tp":"Full benchmarking revision - rerun and improve the load test","h":3},{"d":249,"m":9,"mt":"GPU/CUDA + Model Serving Internals","w":"Thu","t":"Monthly Revision","tp":"Mock quiz: GPU + model-serving internals","h":3},{"d":250,"m":9,"mt":"GPU/CUDA + Model Serving Internals","w":"Fri","t":"Monthly Revision","tp":"Fix every weak area exposed by the mock quiz","h":3},{"d":251,"m":9,"mt":"GPU/CUDA + Model Serving Internals","w":"Sat","t":"Monthly Revision","tp":"Read 2-3 Baseten / vLLM / KServe engineering blog posts; take notes","h":4},{"d":252,"m":9,"mt":"GPU/CUDA + Model Serving Internals","w":"Sun","t":"Monthly Revision","tp":"Write a Month 9 summary cheat-sheet; plan Month 10 (project month)","h":5},{"d":253,"m":10,"mt":"Portfolio Project - GPU Autoscaling Model-Serving Platform","w":"Mon","t":"New Topic","tp":"Write the project design doc: architecture diagram, requirements","h":3},{"d":254,"m":10,"mt":"Portfolio Project - GPU Autoscaling Model-Serving Platform","w":"Tue","t":"New Topic","tp":"Set up a Kubernetes cluster with a GPU node pool for the project","h":3},{"d":255,"m":10,"mt":"Portfolio Project - GPU Autoscaling Model-Serving Platform","w":"Wed","t":"New Topic","tp":"Deploy Knative + install the GPU device plugin","h":3},{"d":256,"m":10,"mt":"Portfolio Project - GPU Autoscaling Model-Serving Platform","w":"Thu","t":"New Topic","tp":"Containerize a chosen open-source model (small LLM/diffusion) for serving","h":3},{"d":257,"m":10,"mt":"Portfolio Project - GPU Autoscaling Model-Serving Platform","w":"Fri","t":"New Topic","tp":"Deploy the model service on Knative with GPU resource requests","h":3},{"d":258,"m":10,"mt":"Portfolio Project - GPU Autoscaling Model-Serving Platform","w":"Sat","t":"Lab (4h)","tp":"Get the end-to-end request path working: client -> service -> GPU -> response","h":4},{"d":259,"m":10,"mt":"Portfolio Project - GPU Autoscaling Model-Serving Platform","w":"Sun","t":"Weekly Revision","tp":"Debug and stabilize the deployment","h":5},{"d":260,"m":10,"mt":"Portfolio Project - GPU Autoscaling Model-Serving Platform","w":"Mon","t":"New Topic","tp":"Configure autoscaling: scale-to-zero, concurrency-based scaling","h":3},{"d":261,"m":10,"mt":"Portfolio Project - GPU Autoscaling Model-Serving Platform","w":"Tue","t":"New Topic","tp":"Add Prometheus metrics + a Grafana dashboard for the service","h":3},{"d":262,"m":10,"mt":"Portfolio Project - GPU Autoscaling Model-Serving Platform","w":"Wed","t":"New Topic","tp":"Add distributed tracing (OpenTelemetry) to the request path","h":3},{"d":263,"m":10,"mt":"Portfolio Project - GPU Autoscaling Model-Serving Platform","w":"Thu","t":"New Topic","tp":"Add centralized logging","h":3},{"d":264,"m":10,"mt":"Portfolio Project - GPU Autoscaling Model-Serving Platform","w":"Fri","t":"New Topic","tp":"Load test with Locust/k6; tune autoscaling parameters from results","h":3},{"d":265,"m":10,"mt":"Portfolio Project - GPU Autoscaling Model-Serving Platform","w":"Sat","t":"Lab (4h)","tp":"Full load test + tune cold-start latency","h":4},{"d":266,"m":10,"mt":"Portfolio Project - GPU Autoscaling Model-Serving Platform","w":"Sun","t":"Weekly Revision","tp":"Review dashboards, fix alerting gaps","h":5},{"d":267,"m":10,"mt":"Portfolio Project - GPU Autoscaling Model-Serving Platform","w":"Mon","t":"New Topic","tp":"Write Terraform to provision the entire infra from scratch","h":3},{"d":268,"m":10,"mt":"Portfolio Project - GPU Autoscaling Model-Serving Platform","w":"Tue","t":"New Topic","tp":"Set up a CI/CD pipeline (GitHub Actions) to build/deploy the model service","h":3},{"d":269,"m":10,"mt":"Portfolio Project - GPU Autoscaling Model-Serving Platform","w":"Wed","t":"New Topic","tp":"Add cost tracking/estimation for the deployment","h":3},{"d":270,"m":10,"mt":"Portfolio Project - GPU Autoscaling Model-Serving Platform","w":"Thu","t":"New Topic","tp":"Security pass: least-privilege IAM, secrets management, image scanning","h":3},{"d":271,"m":10,"mt":"Portfolio Project - GPU Autoscaling Model-Serving Platform","w":"Fri","t":"New Topic","tp":"Write documentation: README, architecture diagram, runbook","h":3},{"d":272,"m":10,"mt":"Portfolio Project - GPU Autoscaling Model-Serving Platform","w":"Sat","t":"Lab (4h)","tp":"Full teardown and rebuild via Terraform + CI/CD only (prove reproducibility)","h":4},{"d":273,"m":10,"mt":"Portfolio Project - GPU Autoscaling Model-Serving Platform","w":"Sun","t":"Weekly Revision","tp":"Review the whole project end-to-end","h":5},{"d":274,"m":10,"mt":"Portfolio Project - GPU Autoscaling Model-Serving Platform","w":"Mon","t":"Monthly Revision","tp":"Record a short demo video / write a technical blog post about the project","h":3},{"d":275,"m":10,"mt":"Portfolio Project - GPU Autoscaling Model-Serving Platform","w":"Tue","t":"Monthly Revision","tp":"Publish the project to GitHub with a polished README","h":3},{"d":276,"m":10,"mt":"Portfolio Project - GPU Autoscaling Model-Serving Platform","w":"Wed","t":"Monthly Revision","tp":"Get feedback (peers, relevant communities/forums)","h":3},{"d":277,"m":10,"mt":"Portfolio Project - GPU Autoscaling Model-Serving Platform","w":"Thu","t":"Monthly Revision","tp":"Incorporate feedback; fix issues found","h":3},{"d":278,"m":10,"mt":"Portfolio Project - GPU Autoscaling Model-Serving Platform","w":"Fri","t":"Monthly Revision","tp":"Mock technical walkthrough - explain the project out loud as in an interview","h":3},{"d":279,"m":10,"mt":"Portfolio Project - GPU Autoscaling Model-Serving Platform","w":"Sat","t":"Monthly Revision","tp":"Stress-test the project once more; fix any remaining bugs","h":4},{"d":280,"m":10,"mt":"Portfolio Project - GPU Autoscaling Model-Serving Platform","w":"Sun","t":"Monthly Revision","tp":"Final polish + Month 10 summary notes; plan Month 11","h":5},{"d":281,"m":11,"mt":"System Design, Interview Prep, OSS & Applying to Baseten","w":"Mon","t":"New Topic","tp":"System design fundamentals: scalability, availability, consistency tradeoffs","h":3},{"d":282,"m":11,"mt":"System Design, Interview Prep, OSS & Applying to Baseten","w":"Tue","t":"New Topic","tp":"Practice: design a multi-tenant GPU inference platform (whiteboard)","h":3},{"d":283,"m":11,"mt":"System Design, Interview Prep, OSS & Applying to Baseten","w":"Wed","t":"New Topic","tp":"Practice: design a CI/CD system for ML model deployment","h":3},{"d":284,"m":11,"mt":"System Design, Interview Prep, OSS & Applying to Baseten","w":"Thu","t":"New Topic","tp":"Practice: design a monitoring/alerting system at scale","h":3},{"d":285,"m":11,"mt":"System Design, Interview Prep, OSS & Applying to Baseten","w":"Fri","t":"New Topic","tp":"Practice: design a multi-cloud capacity management system","h":3},{"d":286,"m":11,"mt":"System Design, Interview Prep, OSS & Applying to Baseten","w":"Sat","t":"Lab (4h)","tp":"Write up one system design in full detail as a document","h":4},{"d":287,"m":11,"mt":"System Design, Interview Prep, OSS & Applying to Baseten","w":"Sun","t":"Weekly Revision","tp":"Redo one system design from memory, no notes","h":5},{"d":288,"m":11,"mt":"System Design, Interview Prep, OSS & Applying to Baseten","w":"Mon","t":"New Topic","tp":"Kubernetes troubleshooting interview questions - practice out loud","h":3},{"d":289,"m":11,"mt":"System Design, Interview Prep, OSS & Applying to Baseten","w":"Tue","t":"New Topic","tp":"Terraform/CI-CD interview questions - practice","h":3},{"d":290,"m":11,"mt":"System Design, Interview Prep, OSS & Applying to Baseten","w":"Wed","t":"New Topic","tp":"Find and read open issues in the Knative/KServe/vLLM repos","h":3},{"d":291,"m":11,"mt":"System Design, Interview Prep, OSS & Applying to Baseten","w":"Thu","t":"New Topic","tp":"Make a small OSS contribution (docs fix, small bug fix, or issue triage)","h":3},{"d":292,"m":11,"mt":"System Design, Interview Prep, OSS & Applying to Baseten","w":"Fri","t":"New Topic","tp":"Behavioral interview prep: ownership & incident stories (STAR method)","h":3},{"d":293,"m":11,"mt":"System Design, Interview Prep, OSS & Applying to Baseten","w":"Sat","t":"Lab (4h)","tp":"Do a full mock system-design interview (record yourself or use a peer)","h":4},{"d":294,"m":11,"mt":"System Design, Interview Prep, OSS & Applying to Baseten","w":"Sun","t":"Weekly Revision","tp":"Refine answers based on mock-interview feedback","h":5},{"d":295,"m":11,"mt":"System Design, Interview Prep, OSS & Applying to Baseten","w":"Mon","t":"New Topic","tp":"Tailor your resume specifically to Baseten's stack (K8s, Knative, Go, GPU, Terraform)","h":3},{"d":296,"m":11,"mt":"System Design, Interview Prep, OSS & Applying to Baseten","w":"Tue","t":"New Topic","tp":"Write a short technical blog post summarizing your project and learnings","h":3},{"d":297,"m":11,"mt":"System Design, Interview Prep, OSS & Applying to Baseten","w":"Wed","t":"New Topic","tp":"Build/update your LinkedIn & GitHub profile to highlight infra/ML-serving work","h":3},{"d":298,"m":11,"mt":"System Design, Interview Prep, OSS & Applying to Baseten","w":"Thu","t":"New Topic","tp":"Research Baseten's engineers/team on LinkedIn and their engineering blog","h":3},{"d":299,"m":11,"mt":"System Design, Interview Prep, OSS & Applying to Baseten","w":"Fri","t":"New Topic","tp":"Draft tailored outreach messages referencing specific Baseten projects/posts","h":3},{"d":300,"m":11,"mt":"System Design, Interview Prep, OSS & Applying to Baseten","w":"Sat","t":"Lab (4h)","tp":"Apply to Baseten + 5-10 similar ML infra companies (Modal, Replicate, Fireworks, Together AI, etc.)","h":4},{"d":301,"m":11,"mt":"System Design, Interview Prep, OSS & Applying to Baseten","w":"Sun","t":"Weekly Revision","tp":"Review and refine all application materials","h":5},{"d":302,"m":11,"mt":"System Design, Interview Prep, OSS & Applying to Baseten","w":"Mon","t":"Monthly Revision","tp":"Full Kubernetes revision - end-to-end, no notes","h":3},{"d":303,"m":11,"mt":"System Design, Interview Prep, OSS & Applying to Baseten","w":"Tue","t":"Monthly Revision","tp":"Full Terraform/CI-CD revision","h":3},{"d":304,"m":11,"mt":"System Design, Interview Prep, OSS & Applying to Baseten","w":"Wed","t":"Monthly Revision","tp":"Full GPU/model-serving revision","h":3},{"d":305,"m":11,"mt":"System Design, Interview Prep, OSS & Applying to Baseten","w":"Thu","t":"Monthly Revision","tp":"Full observability revision","h":3},{"d":306,"m":11,"mt":"System Design, Interview Prep, OSS & Applying to Baseten","w":"Fri","t":"Monthly Revision","tp":"Mock quiz: everything combined (comprehensive self-test)","h":3},{"d":307,"m":11,"mt":"System Design, Interview Prep, OSS & Applying to Baseten","w":"Sat","t":"Monthly Revision","tp":"Full mock interview loop: system design + infra/coding + behavioral","h":4},{"d":308,"m":11,"mt":"System Design, Interview Prep, OSS & Applying to Baseten","w":"Sun","t":"Monthly Revision","tp":"Rest, review all cheat-sheets, reflect, and plan your interview loop","h":5}];
+
+const MONTH_TITLES = {
+  "1": "Linux, Networking, Git & Go Foundations",
+  "2": "Go & Python Deep Dive + Docker",
+  "3": "Kubernetes Fundamentals",
+  "4": "Advanced Kubernetes + Knative + GPU Scheduling",
+  "5": "Terraform / IaC + CI/CD + GitOps",
+  "6": "Observability + Databases",
+  "7": "AWS Deep Dive",
+  "8": "GCP + Multi-Cloud + Security",
+  "9": "GPU/CUDA + Model Serving Internals",
+  "10": "Portfolio Project - GPU Autoscaling Model-Serving Platform",
+  "11": "System Design, Interview Prep, OSS & Applying to Baseten"
+};
+
+const TYPE_CLASS = {
+  "New Topic": "new",
+  "Lab (4h)": "lab",
+  "Weekly Revision": "weekrev",
+  "Monthly Revision": "monthrev"
+};
+
+const TYPE_LABEL = {
+  "New Topic": "New Topic",
+  "Lab (4h)": "Lab",
+  "Weekly Revision": "Wk Revision",
+  "Monthly Revision": "Mo Revision"
+};
+
+// Checkboxes map: { [checkboxId]: true / false }
+// e.g. { "vikas-1": true, "nitish-1": true }
+let checkboxesState = {};
+let startDateStr = todayISO();
+let activeTheme = 'light';
+let isBackendConnected = false;
+
+// DOM elements
+const statusText = document.getElementById('statusText');
+const startInput = document.getElementById('startDate');
+const filterSelect = document.getElementById('filterSelect');
+const searchInput = document.getElementById('searchInput');
+const themeToggleBtn = document.getElementById('themeToggleBtn');
+
+function todayISO(offsetDays) {
+  const d = new Date();
+  d.setDate(d.getDate() + (offsetDays || 0));
+  const year = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+function computeDateForDay(dayNum) {
+  const start = startDateStr || todayISO();
+  const parts = start.split('-');
+  const base = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+  base.setDate(base.getDate() + (dayNum - 1));
+  
+  const weekday = base.toLocaleDateString('en-US', { weekday: 'short' });
+  const day = base.getDate();
+  const month = base.toLocaleDateString('en-US', { month: 'short' });
+  const year = base.getFullYear();
+  return `${weekday}, ${day} ${month} ${year}`;
+}
+
+function initTheme() {
+  const saved = localStorage.getItem('devops_roadmap_theme') || 'light';
+  setTheme(saved);
+}
+
+function setTheme(theme) {
+  activeTheme = theme;
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('devops_roadmap_theme', theme);
+  themeToggleBtn.textContent = theme === 'dark' ? '☀️ Light' : '🌙 Dark';
+}
+
+themeToggleBtn.addEventListener('click', () => {
+  setTheme(activeTheme === 'dark' ? 'light' : 'dark');
+});
+
+// Build the curriculum table UI
+function buildUI() {
+  const container = document.getElementById('months');
+  container.innerHTML = '';
+  
+  const byMonth = {};
+  ROADMAP.forEach(r => { (byMonth[r.m] = byMonth[r.m] || []).push(r); });
+
+  Object.keys(byMonth).sort((a,b) => a - b).forEach(mKey => {
+    const rows = byMonth[mKey];
+    const block = document.createElement('div');
+    block.className = 'month-block';
+    block.dataset.month = mKey;
+
+    const head = document.createElement('div');
+    head.className = 'month-head';
+    head.innerHTML = `
+      <div class="month-head-left">
+        <span class="m-badge">Month ${mKey} &bull; ${rows.length} Days</span>
+        <div class="m-title">${MONTH_TITLES[mKey]}</div>
+      </div>
+      <div class="month-head-right">
+        <div class="mini-tracker-group">
+          <!-- Vikas Mini -->
+          <div class="mini-person-stat" title="Vikas V completed days in this month">
+            <span class="mini-avatar-tag vikas">VV</span>
+            <div class="mini-bar"><div class="mini-fill vikas" data-role="vikas-minifill"></div></div>
+            <span class="mini-stat-label" data-role="vikas-minisub">0/${rows.length}</span>
+          </div>
+          <!-- Nitish Mini -->
+          <div class="mini-person-stat" title="Nitish Kumar completed days in this month">
+            <span class="mini-avatar-tag nitish">NK</span>
+            <div class="mini-bar"><div class="mini-fill nitish" data-role="nitish-minifill"></div></div>
+            <span class="mini-stat-label" data-role="nitish-minisub">0/${rows.length}</span>
+          </div>
+        </div>
+        <span class="chevron-icon">&#9656;</span>
+      </div>`;
+
+    head.addEventListener('click', () => block.classList.toggle('open'));
+    block.appendChild(head);
+
+    const listWrap = document.createElement('div');
+    listWrap.className = 'day-list-wrap';
+
+    // Table Column Header (Date & Topic on left, checkmark columns for Vikas & Nitish)
+    const headerRow = document.createElement('div');
+    headerRow.className = 'table-header';
+    headerRow.innerHTML = `
+      <div class="col-header-main">
+        <span>Date &amp; Curriculum Topic to Cover</span>
+      </div>
+      <div class="col-header-user vikas">
+        <span class="mini-tag" style="background:var(--vikas-primary)">VV</span>
+        <span>Vikas V</span>
+      </div>
+      <div class="col-header-user nitish">
+        <span class="mini-tag" style="background:var(--nitish-primary)">NK</span>
+        <span>Nitish Kumar</span>
+      </div>
+    `;
+    listWrap.appendChild(headerRow);
+
+    // Rows
+    rows.forEach(r => {
+      const row = document.createElement('div');
+      row.className = 'day-row';
+      row.dataset.day = r.d;
+      row.dataset.topic = r.tp.toLowerCase();
+
+      const cls = TYPE_CLASS[r.t] || 'new';
+      const label = TYPE_LABEL[r.t] || r.t;
+      const vikasId = `vikas-${r.d}`;
+      const nitishId = `nitish-${r.d}`;
+
+      row.innerHTML = `
+        <!-- Left: Date & Topic to be covered on that day -->
+        <div class="day-main-cell">
+          <div class="day-meta-bar">
+            <span class="date-badge-main" data-role="datelabel">${computeDateForDay(r.d)}</span>
+            <span class="day-badge-sub">Day ${r.d}</span>
+            <span class="badge ${cls}">${label}</span>
+            <span class="badge-hours">${r.h}h</span>
+          </div>
+          <div class="topic-desc">${r.tp}</div>
+          
+          <!-- Mobile checkboxes visible on smaller screens -->
+          <div class="mobile-checkbox-row" style="display:none;">
+            <label class="checkbox-container vikas-check" title="Toggle Vikas V (Day ${r.d})">
+              <input type="checkbox" id="${vikasId}-mobile" data-user="vikas" data-day="${r.d}" data-chk-id="${vikasId}">
+              <span class="custom-box">
+                <svg class="checkmark-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span class="mobile-label" style="color:var(--vikas-primary);">Vikas V</span>
+            </label>
+            <label class="checkbox-container nitish-check" title="Toggle Nitish Kumar (Day ${r.d})">
+              <input type="checkbox" id="${nitishId}-mobile" data-user="nitish" data-day="${r.d}" data-chk-id="${nitishId}">
+              <span class="custom-box">
+                <svg class="checkmark-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span class="mobile-label" style="color:var(--nitish-primary);">Nitish Kumar</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Desktop Checkmark Column: Vikas V -->
+        <div class="check-cell desktop-only">
+          <label class="checkbox-container vikas-check" title="Toggle Vikas V (Day ${r.d})">
+            <input type="checkbox" id="${vikasId}" data-user="vikas" data-day="${r.d}" data-chk-id="${vikasId}">
+            <span class="custom-box">
+              <svg class="checkmark-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </span>
+          </label>
+        </div>
+
+        <!-- Desktop Checkmark Column: Nitish Kumar -->
+        <div class="check-cell desktop-only">
+          <label class="checkbox-container nitish-check" title="Toggle Nitish Kumar (Day ${r.d})">
+            <input type="checkbox" id="${nitishId}" data-user="nitish" data-day="${r.d}" data-chk-id="${nitishId}">
+            <span class="custom-box">
+              <svg class="checkmark-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </span>
+          </label>
+        </div>
+      `;
+
+      listWrap.appendChild(row);
+    });
+
+    block.appendChild(listWrap);
+    container.appendChild(block);
+  });
+
+  // Attach change listener to all checkboxes
+  document.querySelectorAll('input[type="checkbox"][data-chk-id]').forEach(cb => {
+    cb.addEventListener('change', onCheckboxToggle);
+  });
+}
+
+// When any checkbox is marked or unmarked
+async function onCheckboxToggle(e) {
+  const chkId = e.target.dataset.chkId;
+  const isChecked = e.target.checked;
+
+  // Store in memory
+  if (isChecked) {
+    checkboxesState[chkId] = true;
+  } else {
+    delete checkboxesState[chkId];
+  }
+
+  // Synchronize both desktop & mobile checkboxes with same chkId
+  document.querySelectorAll(`input[data-chk-id="${chkId}"]`).forEach(cb => {
+    cb.checked = isChecked;
+  });
+
+  // Save immediately to localStorage as an instant guarantee against reload loss
+  saveToLocalStorage();
+
+  // Re-calculate and render dashboard stats
+  renderProgressState();
+
+  // Save to MongoDB backend
+  statusText.textContent = 'Saving to MongoDB…';
+  try {
+    const res = await fetch('/api/checkbox', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: chkId, checked: isChecked })
+    });
+
+    if (res.ok) {
+      statusText.textContent = 'Saved in MongoDB ✓';
+    } else {
+      const data = await res.json().catch(() => ({}));
+      if (data.isConnected === false) {
+        statusText.textContent = 'Saved locally (connect MongoDB to sync) ✓';
+      } else {
+        statusText.textContent = 'Saved locally ✓';
+      }
+    }
+  } catch (err) {
+    // Backend unreachable, fallback preserved in local cache
+    statusText.textContent = 'Saved locally ✓';
+  }
+}
+
+// Calculate progress and update DOM
+function renderProgressState() {
+  let vikasDays = 0, vikasHours = 0;
+  let nitishDays = 0, nitishHours = 0;
+  let bothDays = 0;
+
+  ROADMAP.forEach(r => {
+    const vDone = checkboxesState[`vikas-${r.d}`] === true;
+    const nDone = checkboxesState[`nitish-${r.d}`] === true;
+
+    if (vDone) { vikasDays++; vikasHours += r.h; }
+    if (nDone) { nitishDays++; nitishHours += r.h; }
+    if (vDone && nDone) { bothDays++; }
+  });
+
+  // Update Vikas Dashboard
+  const vPct = Math.round((vikasDays / ROADMAP.length) * 1000) / 10;
+  document.getElementById('vikasPct').textContent = vPct.toFixed(1) + '%';
+  document.getElementById('vikasBar').style.width = vPct + '%';
+  document.getElementById('vikasDays').textContent = `${vikasDays} / ${ROADMAP.length}`;
+  document.getElementById('vikasHours').textContent = `${vikasHours} / 1056`;
+  document.getElementById('vikasRemaining').textContent = `${ROADMAP.length - vikasDays} days remaining`;
+  document.getElementById('vikasStreak').textContent = `${computeStreak('vikas')} days`;
+
+  // Update Nitish Dashboard
+  const nPct = Math.round((nitishDays / ROADMAP.length) * 1000) / 10;
+  document.getElementById('nitishPct').textContent = nPct.toFixed(1) + '%';
+  document.getElementById('nitishBar').style.width = nPct + '%';
+  document.getElementById('nitishDays').textContent = `${nitishDays} / ${ROADMAP.length}`;
+  document.getElementById('nitishHours').textContent = `${nitishHours} / 1056`;
+  document.getElementById('nitishRemaining').textContent = `${ROADMAP.length - nitishDays} days remaining`;
+  document.getElementById('nitishStreak').textContent = `${computeStreak('nitish')} days`;
+
+  // Update Synergy Banner
+  document.getElementById('bothCountPill').textContent = `${bothDays} Days Both Finished`;
+  const diff = vikasDays - nitishDays;
+  let diffText = 'Sync status: Perfectly in sync 🤝';
+  if (diff > 0) diffText = `Vikas is ahead by ${diff} day${diff > 1 ? 's' : ''} 🚀`;
+  if (diff < 0) diffText = `Nitish is ahead by ${Math.abs(diff)} day${Math.abs(diff) > 1 ? 's' : ''} 🚀`;
+  document.getElementById('syncDifference').textContent = diffText;
+
+  // Update Row States and Checkbox elements:
+  // If its true in checkboxesState, show checkmark here!
+  document.querySelectorAll('.day-row').forEach(row => {
+    const d = row.dataset.day;
+    const vChecked = checkboxesState[`vikas-${d}`] === true;
+    const nChecked = checkboxesState[`nitish-${d}`] === true;
+
+    row.querySelectorAll('input[data-user="vikas"]').forEach(cb => cb.checked = vChecked);
+    row.querySelectorAll('input[data-user="nitish"]').forEach(cb => cb.checked = nChecked);
+
+    row.classList.toggle('vikas-done', vChecked && !nChecked);
+    row.classList.toggle('nitish-done', nChecked && !vChecked);
+    row.classList.toggle('both-done', vChecked && nChecked);
+  });
+
+  // Update Mini bars in month headers
+  document.querySelectorAll('.month-block').forEach(block => {
+    const m = block.dataset.month;
+    const rows = ROADMAP.filter(r => String(r.m) === String(m));
+
+    const vMonthDone = rows.filter(r => checkboxesState[`vikas-${r.d}`] === true).length;
+    const nMonthDone = rows.filter(r => checkboxesState[`nitish-${r.d}`] === true).length;
+
+    const vMonthPct = Math.round((vMonthDone / rows.length) * 100);
+    const nMonthPct = Math.round((nMonthDone / rows.length) * 100);
+
+    const vFill = block.querySelector('[data-role="vikas-minifill"]');
+    const vSub = block.querySelector('[data-role="vikas-minisub"]');
+    if (vFill) vFill.style.width = vMonthPct + '%';
+    if (vSub) vSub.textContent = `${vMonthDone}/${rows.length}`;
+
+    const nFill = block.querySelector('[data-role="nitish-minifill"]');
+    const nSub = block.querySelector('[data-role="nitish-minisub"]');
+    if (nFill) nFill.style.width = nMonthPct + '%';
+    if (nSub) nSub.textContent = `${nMonthDone}/${rows.length}`;
+  });
+
+  applyFilter();
+}
+
+function computeStreak(user) {
+  const userDoneDays = ROADMAP.filter(r => checkboxesState[`${user}-${r.d}`] === true).map(r => r.d);
+  if (userDoneDays.length === 0) return 0;
+
+  const maxDone = Math.max(...userDoneDays);
+  let streak = 0;
+  for (let d = maxDone; d >= 1; d--) {
+    if (checkboxesState[`${user}-${d}`] === true) streak++;
+    else break;
+  }
+  return streak;
+}
+
+function applyDates() {
+  document.querySelectorAll('.day-row').forEach(row => {
+    const d = parseInt(row.dataset.day, 10);
+    const label = row.querySelector('[data-role="datelabel"]');
+    if (label) label.textContent = computeDateForDay(d);
+  });
+}
+
+function applyFilter() {
+  const mode = filterSelect.value;
+  const search = (searchInput.value || '').trim().toLowerCase();
+
+  document.querySelectorAll('.day-row').forEach(row => {
+    const d = row.dataset.day;
+    const vDone = checkboxesState[`vikas-${d}`] === true;
+    const nDone = checkboxesState[`nitish-${d}`] === true;
+    const topic = row.dataset.topic || '';
+
+    let matchFilter = true;
+    if (mode === 'both-done') matchFilter = vDone && nDone;
+    else if (mode === 'either-pending') matchFilter = !vDone || !nDone;
+    else if (mode === 'vikas-pending') matchFilter = !vDone;
+    else if (mode === 'vikas-done') matchFilter = vDone;
+    else if (mode === 'nitish-pending') matchFilter = !nDone;
+    else if (mode === 'nitish-done') matchFilter = nDone;
+    else if (mode === 'diff') matchFilter = vDone !== nDone;
+
+    let matchSearch = true;
+    if (search.length > 0) {
+      matchSearch = topic.includes(search) || `day ${d}`.includes(search);
+    }
+
+    row.style.display = (matchFilter && matchSearch) ? (window.innerWidth <= 720 ? 'block' : 'grid') : 'none';
+  });
+}
+
+// Local storage backup routines
+function saveToLocalStorage() {
+  try {
+    const data = {
+      checkboxes: checkboxesState,
+      startDate: startDateStr || todayISO()
+    };
+    localStorage.setItem('devops_roadmap_mongo_cache', JSON.stringify(data));
+  } catch (e) {}
+}
+
+function loadFromLocalStorage() {
+  try {
+    const raw = localStorage.getItem('devops_roadmap_mongo_cache');
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      checkboxesState = parsed.checkboxes || {};
+      startDateStr = parsed.startDate || todayISO();
+      return true;
+    }
+    // Also migrate legacy v2 structure if present
+    const rawV2 = localStorage.getItem('devops_roadmap_progress_v2');
+    if (rawV2) {
+      const parsed = JSON.parse(rawV2);
+      checkboxesState = {};
+      if (parsed.vikas) {
+        Object.keys(parsed.vikas).forEach(day => { checkboxesState[`vikas-${day}`] = true; });
+      }
+      if (parsed.nitish) {
+        Object.keys(parsed.nitish).forEach(day => { checkboxesState[`nitish-${day}`] = true; });
+      }
+      startDateStr = parsed.startDate || todayISO();
+      saveToLocalStorage();
+      return true;
+    }
+  } catch (e) {}
+  return false;
+}
+
+// Main load function: load from localStorage immediately, then sync with MongoDB
+async function loadProgress() {
+  // Step 1: Instant render from local cache so marked checkboxes never vanish on reload
+  loadFromLocalStorage();
+  startInput.value = startDateStr || todayISO();
+  applyDates();
+  renderProgressState();
+
+  // Step 2: Fetch authoritative data from MongoDB backend
+  try {
+    const res = await fetch('/api/progress');
+    if (res.ok) {
+      const data = await res.json();
+      if (data.connected) {
+        setMongoConnected(true);
+        // Merge MongoDB checkboxes:
+        if (data.checkboxes) {
+          checkboxesState = data.checkboxes;
+        }
+        if (data.startDate) {
+          startDateStr = data.startDate;
+          startInput.value = startDateStr;
+        }
+        // Save to local cache
+        saveToLocalStorage();
+        applyDates();
+        renderProgressState();
+        statusText.textContent = 'Synced with MongoDB ✓';
+      } else {
+        statusText.textContent = 'Saved locally ✓';
+      }
+    } else {
+      statusText.textContent = 'Saved locally ✓';
+    }
+  } catch (e) {
+    statusText.textContent = 'Saved locally ✓';
+  }
+}
+
+// Event Listeners
+startInput.addEventListener('change', async () => {
+  startDateStr = startInput.value || todayISO();
+  applyDates();
+  saveToLocalStorage();
+  try {
+    await fetch('/api/progress', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ startDate: startDateStr })
+    });
+  } catch (e) {}
+});
+
+filterSelect.addEventListener('change', applyFilter);
+searchInput.addEventListener('input', applyFilter);
+
+document.getElementById('expandAllBtn').addEventListener('click', () => {
+  document.querySelectorAll('.month-block').forEach(b => b.classList.add('open'));
+});
+
+document.getElementById('collapseAllBtn').addEventListener('click', () => {
+  document.querySelectorAll('.month-block').forEach(b => b.classList.remove('open'));
+});
+
+document.getElementById('resetBtn').addEventListener('click', async () => {
+  if (confirm("Reset all progress for both Vikas and Nitish? This cannot be undone.")) {
+    checkboxesState = {};
+    saveToLocalStorage();
+    renderProgressState();
+    try {
+      await fetch('/api/progress', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ checkboxes: {} })
+      });
+      statusText.textContent = 'Progress reset in MongoDB ✓';
+    } catch (e) {
+      statusText.textContent = 'Reset locally ✓';
+    }
+  }
+});
+
+// Initialize
+initTheme();
+buildUI();
+loadProgress().then(() => {
+  // Automatically open the first month with pending tasks for either user
+  const firstPending = ROADMAP.find(r => !(checkboxesState[`vikas-${r.d}`] === true) || !(checkboxesState[`nitish-${r.d}`] === true)) || ROADMAP[0];
+  const block = document.querySelector(`.month-block[data-month="${firstPending.m}"]`);
+  if (block) block.classList.add('open');
+});
+</script>
+</body>
+</html>

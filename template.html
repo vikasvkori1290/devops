@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DevOps Roadmap Tracker - Vikas V &amp; Nitish Kumar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-gradient: radial-gradient(circle at 10% 20%, #f8fafc 0%, #edf2f7 90%);
+  --bg: #f1f5f9;
+  --surface: #ffffff;
+  --surface-hover: #f8fafc;
+  --card: #ffffff;
+  --card-border: #e2e8f0;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-dim: #94a3b8;
+  --border: #e2e8f0;
+  --border-light: #cbd5e1;
+
+  --vikas-primary: #4f46e5;
+  --vikas-glow: rgba(79, 70, 229, 0.2);
+  --vikas-bg: #eef2ff;
+  --vikas-border: #c7d2fe;
+  --vikas-gradient: linear-gradient(135deg, #4f46e5, #38bdf8);
+
+  --nitish-primary: #059669;
+  --nitish-glow: rgba(5, 150, 105, 0.2);
+  --nitish-bg: #ecfdf5;
+  --nitish-border: #a7f3d0;
+  --nitish-gradient: linear-gradient(135deg, #059669, #06b6d4);
+
+  --both-bg: #f0fdf4;
+  --both-border: #86efac;
+
+  --badge-new-bg: #e0f2fe;
+  --badge-new-text: #0284c7;
+  --badge-lab-bg: #ffedd5;
+  --badge-lab-text: #c2410c;
+  --badge-wk-bg: #fef9c3;
+  --badge-wk-text: #a16207;
+  --badge-mo-bg: #f3e8ff;
+  --badge-mo-text: #7e22ce;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="dark"] {
+  --bg-gradient: radial-gradient(circle at 10% 20%, #111827 0%, #0b0f19 90%);
+  --bg: #0b0f19;
+  --surface: #131926;
+  --surface-hover: #1a2234;
+  --card: #161e2e;
+  --card-border: rgba(255, 255, 255, 0.08);
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --border: #1e293b;
+  --border-light: #283548;
+
+  --vikas-primary: #6366f1;
+  --vikas-glow: rgba(99, 102, 241, 0.25);
+  --vikas-bg: rgba(99, 102, 241, 0.12);
+  --vikas-border: rgba(99, 102, 241, 0.4);
+  --vikas-gradient: linear-gradient(135deg, #6366f1, #38bdf8);
+
+  --nitish-primary: #10b981;
+  --nitish-glow: rgba(16, 185, 129, 0.25);
+  --nitish-bg: rgba(16, 185, 129, 0.12);
+  --nitish-border: rgba(16, 185, 129, 0.4);
+  --nitish-gradient: linear-gradient(135deg, #10b981, #06b6d4);
+
+  --both-bg: rgba(56, 189, 248, 0.08);
+  --both-border: rgba(56, 189, 248, 0.3);
+
+  --badge-new-bg: rgba(56, 189, 248, 0.14);
+  --badge-new-text: #38bdf8;
+  --badge-lab-bg: rgba(251, 146, 60, 0.14);
+  --badge-lab-text: #fb923c;
+  --badge-wk-bg: rgba(250, 204, 21, 0.14);
+  --badge-wk-text: #facc15;
+  --badge-mo-bg: rgba(168, 85, 247, 0.14);
+  --badge-mo-text: #c084fc;
+
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  background-image: var(--bg-gradient);
+  min-height: 100vh;
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 20px 80px;
+}
+
+/* Header Area */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--vikas-bg);
+  color: var(--vikas-primary);
+  border: 1px solid var(--vikas-border);
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.app-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.app-title .target-pill {
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  background: linear-gradient(90deg, #f43f5e, #ec4899);
+  color: #ffffff;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+}
+
+.app-subtitle {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  margin-top: 4px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+
+
+.status-pill {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.theme-toggle-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.theme-toggle-btn:hover {
+  color: var(--text-main);
+  border-color: var(--text-muted);
+}
+
+/* Peer Comparison Dashboard */
+.duo-dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .duo-dashboard {
+    grid-template-columns: 1fr;
+  }
+}
+
+.user-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-xl);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.user-card:hover {
+  border-color: var(--border-light);
+}
+
+.user-card.vikas-card {
+  border-top: 3px solid var(--vikas-primary);
+}
+
+.user-card.nitish-card {
+  border-top: 3px solid var(--nitish-primary);
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: #fff;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+}
+
+.avatar.vikas {
+  background: var(--vikas-gradient);
+  box-shadow: 0 4px 14px var(--vikas-glow);
+}
+
+.avatar.nitish {
+  background: var(--nitish-gradient);
+  box-shadow: 0 4px 14px var(--nitish-glow);
+}
+
+.user-info h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.user-info span {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.stat-pct-badge {
+  font-size: 1.4rem;
+  font-weight: 800;
+  font-family: 'JetBrains Mono', monospace;
+}
+.vikas-card .stat-pct-badge { color: var(--vikas-primary); }
+.nitish-card .stat-pct-badge { color: var(--nitish-primary); }
+
+/* Progress Bars */
+.progress-bar-wrap {
+  background: var(--border);
+  height: 10px;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vikas-card .progress-bar-fill {
+  background: var(--vikas-gradient);
+}
+
+.nitish-card .progress-bar-fill {
+  background: var(--nitish-gradient);
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.metric-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.metric-item .val {
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text-main);
+}
+
+.metric-item .lbl {
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+}
+
+/* Synergy Overview Banner */
+.synergy-banner {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 12px 18px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.82rem;
+}
+
+.synergy-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-muted);
+}
+
+.synergy-pill {
+  background: var(--both-bg);
+  border: 1px solid var(--both-border);
+  color: #38bdf8;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.synergy-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--text-dim);
+}
+
+/* Controls & Filters Bar */
+.control-bar {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.control-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-dim);
+}
+
+.control-input, .control-select {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 7px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.control-input:focus, .control-select:focus {
+  border-color: var(--vikas-primary);
+}
+
+.search-input {
+  min-width: 200px;
+}
+
+.btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 7px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+.btn:hover {
+  color: var(--text-main);
+  border-color: var(--border-light);
+  background: var(--surface-hover);
+}
+
+/* Month Accordion Modules */
+.month-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.month-block {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s ease;
+}
+.month-block:hover {
+  border-color: var(--border-light);
+}
+
+.month-head {
+  padding: 16px 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  user-select: none;
+  transition: background-color 0.15s ease;
+}
+.month-head:hover {
+  background: var(--surface-hover);
+}
+
+.month-head-left {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.m-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.m-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.month-head-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+}
+
+.mini-tracker-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.mini-person-stat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mini-avatar-tag {
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 5px;
+  border-radius: 4px;
+  color: #fff;
+}
+.mini-avatar-tag.vikas { background: var(--vikas-primary); }
+.mini-avatar-tag.nitish { background: var(--nitish-primary); }
+
+.mini-bar {
+  width: 55px;
+  height: 6px;
+  background: var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.mini-fill {
+  height: 100%;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+.mini-fill.vikas { background: var(--vikas-primary); }
+.mini-fill.nitish { background: var(--nitish-primary); }
+
+.mini-stat-label {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  font-family: 'JetBrains Mono', monospace;
+  min-width: 48px;
+}
+
+.chevron-icon {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.month-block.open .chevron-icon {
+  transform: rotate(90deg);
+}
+
+/* Table List inside Month */
+.day-list-wrap {
+  display: none;
+  border-top: 1px solid var(--border);
+}
+.month-block.open .day-list-wrap {
+  display: block;
+}
+
+/* Table Column Header: Left is Date & Topic, Right columns are Vikas V and Nitish Kumar */
+.table-header {
+  display: grid;
+  grid-template-columns: 1fr 150px 150px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-dim);
+}
+
+.col-header-main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.col-header-user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+}
+.col-header-user.vikas { color: var(--vikas-primary); }
+.col-header-user.nitish { color: var(--nitish-primary); }
+
+.mini-tag {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+/* Day Row */
+.day-row {
+  display: grid;
+  grid-template-columns: 1fr 150px 150px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+  transition: background 0.15s ease;
+}
+.day-row:last-child {
+  border-bottom: none;
+}
+.day-row:hover {
+  background: var(--surface-hover);
+}
+
+/* Completed Row Highlights */
+.day-row.vikas-done {
+  background: rgba(99, 102, 241, 0.04);
+}
+
+.day-row.nitish-done {
+  background: rgba(16, 185, 129, 0.04);
+}
+
+.day-row.both-done {
+  background: var(--both-bg);
+  box-shadow: inset 4px 0 0 #38bdf8;
+}
+
+/* Toward Left: Date & Topic to be covered on that day */
+.day-main-cell {
+  min-width: 0;
+  padding-right: 20px;
+}
+
+.day-meta-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+}
+
+.date-badge-main {
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text-main);
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  padding: 3px 10px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.day-badge-sub {
+  font-size: 0.70rem;
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text-dim);
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.badge {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  line-height: 1.3;
+}
+
+.badge.new { background: var(--badge-new-bg); color: var(--badge-new-text); }
+.badge.lab { background: var(--badge-lab-bg); color: var(--badge-lab-text); }
+.badge.weekrev { background: var(--badge-wk-bg); color: var(--badge-wk-text); }
+.badge.monthrev { background: var(--badge-mo-bg); color: var(--badge-mo-text); }
+
+.badge-hours {
+  font-size: 0.68rem;
+  font-family: 'JetBrains Mono', monospace;
+  padding: 1px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+}
+
+.topic-desc {
+  font-size: 0.9rem;
+  color: var(--text-main);
+  line-height: 1.45;
+  word-break: break-word;
+}
+.day-row.both-done .topic-desc {
+  color: var(--text-muted);
+}
+
+/* Checkbox Column Cells */
+.check-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  padding: 6px;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.custom-box {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  border: 2px solid var(--border-light);
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.checkbox-container:hover .custom-box {
+  border-color: var(--text-dim);
+  transform: scale(1.08);
+}
+
+/* Vikas Checked */
+.vikas-check input:checked ~ .custom-box {
+  background: var(--vikas-primary);
+  border-color: var(--vikas-primary);
+  box-shadow: 0 0 12px var(--vikas-glow);
+}
+
+/* Nitish Checked */
+.nitish-check input:checked ~ .custom-box {
+  background: var(--nitish-primary);
+  border-color: var(--nitish-primary);
+  box-shadow: 0 0 12px var(--nitish-glow);
+}
+
+.checkmark-svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 20;
+  stroke-dashoffset: 20;
+  transition: stroke-dashoffset 0.25s ease;
+}
+
+.checkbox-container input:checked ~ .custom-box .checkmark-svg {
+  stroke-dashoffset: 0;
+}
+
+.mobile-label {
+  display: none;
+  font-size: 0.76rem;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 720px) {
+  .table-header {
+    display: none;
+  }
+
+  .day-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .day-main-cell {
+    padding-right: 0;
+  }
+
+  .mobile-checkbox-row {
+    display: flex !important;
+    align-items: center;
+    gap: 20px;
+    padding-top: 10px;
+    margin-top: 6px;
+    border-top: 1px dashed var(--border);
+  }
+
+  .check-cell.desktop-only {
+    display: none;
+  }
+
+  .mobile-label {
+    display: inline-block;
+  }
+
+  .month-head-right {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+  }
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.78rem;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="app-container">
+  <!-- Header -->
+  <header class="app-header">
+    <div>
+      <div class="brand-badge">Dual Accountability Tracker</div>
+      <h1 class="app-title">
+        DevOps &amp; ML Infra Roadmap
+        <span class="target-pill">Target: Baseten</span>
+      </h1>
+      <div class="app-subtitle">
+        308 Days &middot; 1,056 Hours &middot; Master Linux, Go, Docker, Kubernetes, Knative, GPU Scheduling, Terraform &amp; vLLM
+      </div>
+    </div>
+    <div class="header-actions">
+      <div class="status-pill" id="statusPill">
+        <span id="statusText">Saved locally ✓</span>
+      </div>
+      <button class="theme-toggle-btn" id="themeToggleBtn" type="button" title="Toggle Light / Dark mode">🌙 Dark</button>
+    </div>
+  </header>
+
+  <!-- Duo Dashboard Cards -->
+  <div class="duo-dashboard">
+    <!-- Vikas V Card -->
+    <div class="user-card vikas-card">
+      <div class="card-top">
+        <div class="user-profile">
+          <div class="avatar vikas">VV</div>
+          <div class="user-info">
+            <h2>Vikas V</h2>
+            <span id="vikasRemaining">308 days remaining</span>
+          </div>
+        </div>
+        <div class="stat-pct-badge" id="vikasPct">0.0%</div>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="vikasBar"></div>
+      </div>
+      <div class="metrics-grid">
+        <div class="metric-item">
+          <div class="val" id="vikasDays">0 / 308</div>
+          <div class="lbl">Days Done</div>
+        </div>
+        <div class="metric-item">
+          <div class="val" id="vikasHours">0 / 1056</div>
+          <div class="lbl">Hours Logged</div>
+        </div>
+        <div class="metric-item">
+          <div class="val" id="vikasStreak">0 days</div>
+          <div class="lbl">Streak 🔥</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nitish Kumar Card -->
+    <div class="user-card nitish-card">
+      <div class="card-top">
+        <div class="user-profile">
+          <div class="avatar nitish">NK</div>
+          <div class="user-info">
+            <h2>Nitish Kumar</h2>
+            <span id="nitishRemaining">308 days remaining</span>
+          </div>
+        </div>
+        <div class="stat-pct-badge" id="nitishPct">0.0%</div>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="nitishBar"></div>
+      </div>
+      <div class="metrics-grid">
+        <div class="metric-item">
+          <div class="val" id="nitishDays">0 / 308</div>
+          <div class="lbl">Days Done</div>
+        </div>
+        <div class="metric-item">
+          <div class="val" id="nitishHours">0 / 1056</div>
+          <div class="lbl">Hours Logged</div>
+        </div>
+        <div class="metric-item">
+          <div class="val" id="nitishStreak">0 days</div>
+          <div class="lbl">Streak 🔥</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Synergy Banner -->
+  <div class="synergy-banner">
+    <div class="synergy-left">
+      <span>🤝 Team Synergy:</span>
+      <span class="synergy-pill" id="bothCountPill">0 Days Both Finished</span>
+    </div>
+    <div class="synergy-right">
+      <span id="syncDifference">Sync status: Perfectly in sync 🤝</span>
+    </div>
+  </div>
+
+  <!-- Controls & Filters Bar -->
+  <div class="control-bar">
+    <div class="control-group">
+      <span class="control-label">Start Date:</span>
+      <input type="date" id="startDate" class="control-input">
+      
+      <span class="control-label" style="margin-left:8px;">Filter:</span>
+      <select id="filterSelect" class="control-select">
+        <option value="all">Show All Days (308)</option>
+        <option value="both-done">Both Completed</option>
+        <option value="either-pending">Either Pending</option>
+        <option value="vikas-pending">Vikas Pending</option>
+        <option value="vikas-done">Vikas Completed</option>
+        <option value="nitish-pending">Nitish Pending</option>
+        <option value="nitish-done">Nitish Completed</option>
+        <option value="diff">Diff (Vikas ≠ Nitish)</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <input type="text" id="searchInput" class="control-input search-input" placeholder="Search topics (e.g. Docker, K8s)...">
+      <button id="expandAllBtn" class="btn" type="button">Expand All</button>
+      <button id="collapseAllBtn" class="btn" type="button">Collapse All</button>
+      <button id="resetBtn" class="btn" type="button" title="Reset all progress">Reset</button>
+    </div>
+  </div>
+
+  <!-- Month Accordions -->
+  <div id="months" class="month-container"></div>
+
+  <!-- Footer -->
+  <footer>
+    DevOps &amp; ML Infra Roadmap &bull; Dual Peer Progress Tracker &bull; Synced with MongoDB &amp; Local Storage.
+  </footer>
+</div>
+
+
+
+<script>
+const ROADMAP = __ROADMAP_PLACEHOLDER__;
+
+const MONTH_TITLES = {
+  "1": "Linux, Networking, Git & Go Foundations",
+  "2": "Go & Python Deep Dive + Docker",
+  "3": "Kubernetes Fundamentals",
+  "4": "Advanced Kubernetes + Knative + GPU Scheduling",
+  "5": "Terraform / IaC + CI/CD + GitOps",
+  "6": "Observability + Databases",
+  "7": "AWS Deep Dive",
+  "8": "GCP + Multi-Cloud + Security",
+  "9": "GPU/CUDA + Model Serving Internals",
+  "10": "Portfolio Project - GPU Autoscaling Model-Serving Platform",
+  "11": "System Design, Interview Prep, OSS & Applying to Baseten"
+};
+
+const TYPE_CLASS = {
+  "New Topic": "new",
+  "Lab (4h)": "lab",
+  "Weekly Revision": "weekrev",
+  "Monthly Revision": "monthrev"
+};
+
+const TYPE_LABEL = {
+  "New Topic": "New Topic",
+  "Lab (4h)": "Lab",
+  "Weekly Revision": "Wk Revision",
+  "Monthly Revision": "Mo Revision"
+};
+
+// Checkboxes map: { [checkboxId]: true / false }
+// e.g. { "vikas-1": true, "nitish-1": true }
+let checkboxesState = {};
+let startDateStr = todayISO();
+let activeTheme = 'light';
+let isBackendConnected = false;
+
+// DOM elements
+const statusText = document.getElementById('statusText');
+const startInput = document.getElementById('startDate');
+const filterSelect = document.getElementById('filterSelect');
+const searchInput = document.getElementById('searchInput');
+const themeToggleBtn = document.getElementById('themeToggleBtn');
+
+function todayISO(offsetDays) {
+  const d = new Date();
+  d.setDate(d.getDate() + (offsetDays || 0));
+  const year = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+function computeDateForDay(dayNum) {
+  const start = startDateStr || todayISO();
+  const parts = start.split('-');
+  const base = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+  base.setDate(base.getDate() + (dayNum - 1));
+  
+  const weekday = base.toLocaleDateString('en-US', { weekday: 'short' });
+  const day = base.getDate();
+  const month = base.toLocaleDateString('en-US', { month: 'short' });
+  const year = base.getFullYear();
+  return `${weekday}, ${day} ${month} ${year}`;
+}
+
+function initTheme() {
+  const saved = localStorage.getItem('devops_roadmap_theme') || 'light';
+  setTheme(saved);
+}
+
+function setTheme(theme) {
+  activeTheme = theme;
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('devops_roadmap_theme', theme);
+  themeToggleBtn.textContent = theme === 'dark' ? '☀️ Light' : '🌙 Dark';
+}
+
+themeToggleBtn.addEventListener('click', () => {
+  setTheme(activeTheme === 'dark' ? 'light' : 'dark');
+});
+
+// Build the curriculum table UI
+function buildUI() {
+  const container = document.getElementById('months');
+  container.innerHTML = '';
+  
+  const byMonth = {};
+  ROADMAP.forEach(r => { (byMonth[r.m] = byMonth[r.m] || []).push(r); });
+
+  Object.keys(byMonth).sort((a,b) => a - b).forEach(mKey => {
+    const rows = byMonth[mKey];
+    const block = document.createElement('div');
+    block.className = 'month-block';
+    block.dataset.month = mKey;
+
+    const head = document.createElement('div');
+    head.className = 'month-head';
+    head.innerHTML = `
+      <div class="month-head-left">
+        <span class="m-badge">Month ${mKey} &bull; ${rows.length} Days</span>
+        <div class="m-title">${MONTH_TITLES[mKey]}</div>
+      </div>
+      <div class="month-head-right">
+        <div class="mini-tracker-group">
+          <!-- Vikas Mini -->
+          <div class="mini-person-stat" title="Vikas V completed days in this month">
+            <span class="mini-avatar-tag vikas">VV</span>
+            <div class="mini-bar"><div class="mini-fill vikas" data-role="vikas-minifill"></div></div>
+            <span class="mini-stat-label" data-role="vikas-minisub">0/${rows.length}</span>
+          </div>
+          <!-- Nitish Mini -->
+          <div class="mini-person-stat" title="Nitish Kumar completed days in this month">
+            <span class="mini-avatar-tag nitish">NK</span>
+            <div class="mini-bar"><div class="mini-fill nitish" data-role="nitish-minifill"></div></div>
+            <span class="mini-stat-label" data-role="nitish-minisub">0/${rows.length}</span>
+          </div>
+        </div>
+        <span class="chevron-icon">&#9656;</span>
+      </div>`;
+
+    head.addEventListener('click', () => block.classList.toggle('open'));
+    block.appendChild(head);
+
+    const listWrap = document.createElement('div');
+    listWrap.className = 'day-list-wrap';
+
+    // Table Column Header (Date & Topic on left, checkmark columns for Vikas & Nitish)
+    const headerRow = document.createElement('div');
+    headerRow.className = 'table-header';
+    headerRow.innerHTML = `
+      <div class="col-header-main">
+        <span>Date &amp; Curriculum Topic to Cover</span>
+      </div>
+      <div class="col-header-user vikas">
+        <span class="mini-tag" style="background:var(--vikas-primary)">VV</span>
+        <span>Vikas V</span>
+      </div>
+      <div class="col-header-user nitish">
+        <span class="mini-tag" style="background:var(--nitish-primary)">NK</span>
+        <span>Nitish Kumar</span>
+      </div>
+    `;
+    listWrap.appendChild(headerRow);
+
+    // Rows
+    rows.forEach(r => {
+      const row = document.createElement('div');
+      row.className = 'day-row';
+      row.dataset.day = r.d;
+      row.dataset.topic = r.tp.toLowerCase();
+
+      const cls = TYPE_CLASS[r.t] || 'new';
+      const label = TYPE_LABEL[r.t] || r.t;
+      const vikasId = `vikas-${r.d}`;
+      const nitishId = `nitish-${r.d}`;
+
+      row.innerHTML = `
+        <!-- Left: Date & Topic to be covered on that day -->
+        <div class="day-main-cell">
+          <div class="day-meta-bar">
+            <span class="date-badge-main" data-role="datelabel">${computeDateForDay(r.d)}</span>
+            <span class="day-badge-sub">Day ${r.d}</span>
+            <span class="badge ${cls}">${label}</span>
+            <span class="badge-hours">${r.h}h</span>
+          </div>
+          <div class="topic-desc">${r.tp}</div>
+          
+          <!-- Mobile checkboxes visible on smaller screens -->
+          <div class="mobile-checkbox-row" style="display:none;">
+            <label class="checkbox-container vikas-check" title="Toggle Vikas V (Day ${r.d})">
+              <input type="checkbox" id="${vikasId}-mobile" data-user="vikas" data-day="${r.d}" data-chk-id="${vikasId}">
+              <span class="custom-box">
+                <svg class="checkmark-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span class="mobile-label" style="color:var(--vikas-primary);">Vikas V</span>
+            </label>
+            <label class="checkbox-container nitish-check" title="Toggle Nitish Kumar (Day ${r.d})">
+              <input type="checkbox" id="${nitishId}-mobile" data-user="nitish" data-day="${r.d}" data-chk-id="${nitishId}">
+              <span class="custom-box">
+                <svg class="checkmark-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span class="mobile-label" style="color:var(--nitish-primary);">Nitish Kumar</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Desktop Checkmark Column: Vikas V -->
+        <div class="check-cell desktop-only">
+          <label class="checkbox-container vikas-check" title="Toggle Vikas V (Day ${r.d})">
+            <input type="checkbox" id="${vikasId}" data-user="vikas" data-day="${r.d}" data-chk-id="${vikasId}">
+            <span class="custom-box">
+              <svg class="checkmark-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </span>
+          </label>
+        </div>
+
+        <!-- Desktop Checkmark Column: Nitish Kumar -->
+        <div class="check-cell desktop-only">
+          <label class="checkbox-container nitish-check" title="Toggle Nitish Kumar (Day ${r.d})">
+            <input type="checkbox" id="${nitishId}" data-user="nitish" data-day="${r.d}" data-chk-id="${nitishId}">
+            <span class="custom-box">
+              <svg class="checkmark-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </span>
+          </label>
+        </div>
+      `;
+
+      listWrap.appendChild(row);
+    });
+
+    block.appendChild(listWrap);
+    container.appendChild(block);
+  });
+
+  // Attach change listener to all checkboxes
+  document.querySelectorAll('input[type="checkbox"][data-chk-id]').forEach(cb => {
+    cb.addEventListener('change', onCheckboxToggle);
+  });
+}
+
+// When any checkbox is marked or unmarked
+async function onCheckboxToggle(e) {
+  const chkId = e.target.dataset.chkId;
+  const isChecked = e.target.checked;
+
+  // Store in memory
+  if (isChecked) {
+    checkboxesState[chkId] = true;
+  } else {
+    delete checkboxesState[chkId];
+  }
+
+  // Synchronize both desktop & mobile checkboxes with same chkId
+  document.querySelectorAll(`input[data-chk-id="${chkId}"]`).forEach(cb => {
+    cb.checked = isChecked;
+  });
+
+  // Save immediately to localStorage as an instant guarantee against reload loss
+  saveToLocalStorage();
+
+  // Re-calculate and render dashboard stats
+  renderProgressState();
+
+  // Save to MongoDB backend
+  statusText.textContent = 'Saving to MongoDB…';
+  try {
+    const res = await fetch('/api/checkbox', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: chkId, checked: isChecked })
+    });
+
+    if (res.ok) {
+      statusText.textContent = 'Saved in MongoDB ✓';
+    } else {
+      const data = await res.json().catch(() => ({}));
+      if (data.isConnected === false) {
+        statusText.textContent = 'Saved locally (connect MongoDB to sync) ✓';
+      } else {
+        statusText.textContent = 'Saved locally ✓';
+      }
+    }
+  } catch (err) {
+    // Backend unreachable, fallback preserved in local cache
+    statusText.textContent = 'Saved locally ✓';
+  }
+}
+
+// Calculate progress and update DOM
+function renderProgressState() {
+  let vikasDays = 0, vikasHours = 0;
+  let nitishDays = 0, nitishHours = 0;
+  let bothDays = 0;
+
+  ROADMAP.forEach(r => {
+    const vDone = checkboxesState[`vikas-${r.d}`] === true;
+    const nDone = checkboxesState[`nitish-${r.d}`] === true;
+
+    if (vDone) { vikasDays++; vikasHours += r.h; }
+    if (nDone) { nitishDays++; nitishHours += r.h; }
+    if (vDone && nDone) { bothDays++; }
+  });
+
+  // Update Vikas Dashboard
+  const vPct = Math.round((vikasDays / ROADMAP.length) * 1000) / 10;
+  document.getElementById('vikasPct').textContent = vPct.toFixed(1) + '%';
+  document.getElementById('vikasBar').style.width = vPct + '%';
+  document.getElementById('vikasDays').textContent = `${vikasDays} / ${ROADMAP.length}`;
+  document.getElementById('vikasHours').textContent = `${vikasHours} / 1056`;
+  document.getElementById('vikasRemaining').textContent = `${ROADMAP.length - vikasDays} days remaining`;
+  document.getElementById('vikasStreak').textContent = `${computeStreak('vikas')} days`;
+
+  // Update Nitish Dashboard
+  const nPct = Math.round((nitishDays / ROADMAP.length) * 1000) / 10;
+  document.getElementById('nitishPct').textContent = nPct.toFixed(1) + '%';
+  document.getElementById('nitishBar').style.width = nPct + '%';
+  document.getElementById('nitishDays').textContent = `${nitishDays} / ${ROADMAP.length}`;
+  document.getElementById('nitishHours').textContent = `${nitishHours} / 1056`;
+  document.getElementById('nitishRemaining').textContent = `${ROADMAP.length - nitishDays} days remaining`;
+  document.getElementById('nitishStreak').textContent = `${computeStreak('nitish')} days`;
+
+  // Update Synergy Banner
+  document.getElementById('bothCountPill').textContent = `${bothDays} Days Both Finished`;
+  const diff = vikasDays - nitishDays;
+  let diffText = 'Sync status: Perfectly in sync 🤝';
+  if (diff > 0) diffText = `Vikas is ahead by ${diff} day${diff > 1 ? 's' : ''} 🚀`;
+  if (diff < 0) diffText = `Nitish is ahead by ${Math.abs(diff)} day${Math.abs(diff) > 1 ? 's' : ''} 🚀`;
+  document.getElementById('syncDifference').textContent = diffText;
+
+  // Update Row States and Checkbox elements:
+  // If its true in checkboxesState, show checkmark here!
+  document.querySelectorAll('.day-row').forEach(row => {
+    const d = row.dataset.day;
+    const vChecked = checkboxesState[`vikas-${d}`] === true;
+    const nChecked = checkboxesState[`nitish-${d}`] === true;
+
+    row.querySelectorAll('input[data-user="vikas"]').forEach(cb => cb.checked = vChecked);
+    row.querySelectorAll('input[data-user="nitish"]').forEach(cb => cb.checked = nChecked);
+
+    row.classList.toggle('vikas-done', vChecked && !nChecked);
+    row.classList.toggle('nitish-done', nChecked && !vChecked);
+    row.classList.toggle('both-done', vChecked && nChecked);
+  });
+
+  // Update Mini bars in month headers
+  document.querySelectorAll('.month-block').forEach(block => {
+    const m = block.dataset.month;
+    const rows = ROADMAP.filter(r => String(r.m) === String(m));
+
+    const vMonthDone = rows.filter(r => checkboxesState[`vikas-${r.d}`] === true).length;
+    const nMonthDone = rows.filter(r => checkboxesState[`nitish-${r.d}`] === true).length;
+
+    const vMonthPct = Math.round((vMonthDone / rows.length) * 100);
+    const nMonthPct = Math.round((nMonthDone / rows.length) * 100);
+
+    const vFill = block.querySelector('[data-role="vikas-minifill"]');
+    const vSub = block.querySelector('[data-role="vikas-minisub"]');
+    if (vFill) vFill.style.width = vMonthPct + '%';
+    if (vSub) vSub.textContent = `${vMonthDone}/${rows.length}`;
+
+    const nFill = block.querySelector('[data-role="nitish-minifill"]');
+    const nSub = block.querySelector('[data-role="nitish-minisub"]');
+    if (nFill) nFill.style.width = nMonthPct + '%';
+    if (nSub) nSub.textContent = `${nMonthDone}/${rows.length}`;
+  });
+
+  applyFilter();
+}
+
+function computeStreak(user) {
+  const userDoneDays = ROADMAP.filter(r => checkboxesState[`${user}-${r.d}`] === true).map(r => r.d);
+  if (userDoneDays.length === 0) return 0;
+
+  const maxDone = Math.max(...userDoneDays);
+  let streak = 0;
+  for (let d = maxDone; d >= 1; d--) {
+    if (checkboxesState[`${user}-${d}`] === true) streak++;
+    else break;
+  }
+  return streak;
+}
+
+function applyDates() {
+  document.querySelectorAll('.day-row').forEach(row => {
+    const d = parseInt(row.dataset.day, 10);
+    const label = row.querySelector('[data-role="datelabel"]');
+    if (label) label.textContent = computeDateForDay(d);
+  });
+}
+
+function applyFilter() {
+  const mode = filterSelect.value;
+  const search = (searchInput.value || '').trim().toLowerCase();
+
+  document.querySelectorAll('.day-row').forEach(row => {
+    const d = row.dataset.day;
+    const vDone = checkboxesState[`vikas-${d}`] === true;
+    const nDone = checkboxesState[`nitish-${d}`] === true;
+    const topic = row.dataset.topic || '';
+
+    let matchFilter = true;
+    if (mode === 'both-done') matchFilter = vDone && nDone;
+    else if (mode === 'either-pending') matchFilter = !vDone || !nDone;
+    else if (mode === 'vikas-pending') matchFilter = !vDone;
+    else if (mode === 'vikas-done') matchFilter = vDone;
+    else if (mode === 'nitish-pending') matchFilter = !nDone;
+    else if (mode === 'nitish-done') matchFilter = nDone;
+    else if (mode === 'diff') matchFilter = vDone !== nDone;
+
+    let matchSearch = true;
+    if (search.length > 0) {
+      matchSearch = topic.includes(search) || `day ${d}`.includes(search);
+    }
+
+    row.style.display = (matchFilter && matchSearch) ? (window.innerWidth <= 720 ? 'block' : 'grid') : 'none';
+  });
+}
+
+// Local storage backup routines
+function saveToLocalStorage() {
+  try {
+    const data = {
+      checkboxes: checkboxesState,
+      startDate: startDateStr || todayISO()
+    };
+    localStorage.setItem('devops_roadmap_mongo_cache', JSON.stringify(data));
+  } catch (e) {}
+}
+
+function loadFromLocalStorage() {
+  try {
+    const raw = localStorage.getItem('devops_roadmap_mongo_cache');
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      checkboxesState = parsed.checkboxes || {};
+      startDateStr = parsed.startDate || todayISO();
+      return true;
+    }
+    // Also migrate legacy v2 structure if present
+    const rawV2 = localStorage.getItem('devops_roadmap_progress_v2');
+    if (rawV2) {
+      const parsed = JSON.parse(rawV2);
+      checkboxesState = {};
+      if (parsed.vikas) {
+        Object.keys(parsed.vikas).forEach(day => { checkboxesState[`vikas-${day}`] = true; });
+      }
+      if (parsed.nitish) {
+        Object.keys(parsed.nitish).forEach(day => { checkboxesState[`nitish-${day}`] = true; });
+      }
+      startDateStr = parsed.startDate || todayISO();
+      saveToLocalStorage();
+      return true;
+    }
+  } catch (e) {}
+  return false;
+}
+
+// Main load function: load from localStorage immediately, then sync with MongoDB
+async function loadProgress() {
+  // Step 1: Instant render from local cache so marked checkboxes never vanish on reload
+  loadFromLocalStorage();
+  startInput.value = startDateStr || todayISO();
+  applyDates();
+  renderProgressState();
+
+  // Step 2: Fetch authoritative data from MongoDB backend
+  try {
+    const res = await fetch('/api/progress');
+    if (res.ok) {
+      const data = await res.json();
+      if (data.connected) {
+        setMongoConnected(true);
+        // Merge MongoDB checkboxes:
+        if (data.checkboxes) {
+          checkboxesState = data.checkboxes;
+        }
+        if (data.startDate) {
+          startDateStr = data.startDate;
+          startInput.value = startDateStr;
+        }
+        // Save to local cache
+        saveToLocalStorage();
+        applyDates();
+        renderProgressState();
+        statusText.textContent = 'Synced with MongoDB ✓';
+      } else {
+        statusText.textContent = 'Saved locally ✓';
+      }
+    } else {
+      statusText.textContent = 'Saved locally ✓';
+    }
+  } catch (e) {
+    statusText.textContent = 'Saved locally ✓';
+  }
+}
+
+// Event Listeners
+startInput.addEventListener('change', async () => {
+  startDateStr = startInput.value || todayISO();
+  applyDates();
+  saveToLocalStorage();
+  try {
+    await fetch('/api/progress', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ startDate: startDateStr })
+    });
+  } catch (e) {}
+});
+
+filterSelect.addEventListener('change', applyFilter);
+searchInput.addEventListener('input', applyFilter);
+
+document.getElementById('expandAllBtn').addEventListener('click', () => {
+  document.querySelectorAll('.month-block').forEach(b => b.classList.add('open'));
+});
+
+document.getElementById('collapseAllBtn').addEventListener('click', () => {
+  document.querySelectorAll('.month-block').forEach(b => b.classList.remove('open'));
+});
+
+document.getElementById('resetBtn').addEventListener('click', async () => {
+  if (confirm("Reset all progress for both Vikas and Nitish? This cannot be undone.")) {
+    checkboxesState = {};
+    saveToLocalStorage();
+    renderProgressState();
+    try {
+      await fetch('/api/progress', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ checkboxes: {} })
+      });
+      statusText.textContent = 'Progress reset in MongoDB ✓';
+    } catch (e) {
+      statusText.textContent = 'Reset locally ✓';
+    }
+  }
+});
+
+// Initialize
+initTheme();
+buildUI();
+loadProgress().then(() => {
+  // Automatically open the first month with pending tasks for either user
+  const firstPending = ROADMAP.find(r => !(checkboxesState[`vikas-${r.d}`] === true) || !(checkboxesState[`nitish-${r.d}`] === true)) || ROADMAP[0];
+  const block = document.querySelector(`.month-block[data-month="${firstPending.m}"]`);
+  if (block) block.classList.add('open');
+});
+</script>
+</body>
+</html>
